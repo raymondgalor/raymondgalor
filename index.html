@@ -1,0 +1,1373 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<style>:root{padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}</style>
+<title>Raymond Neil Galor</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<meta name="description" content="Raymond Neil Galor, Software Engineering Manager and AI Engineer. 10+ years building enterprise web, mobile and cloud software for brands across the Philippines, Australia, New Zealand, the US, Canada, Greece and Japan.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;600&display=swap">
+<script>document.documentElement.classList.add('js');</script>
+<style>
+  /* Layout: on wide landscape screens the first view is the exact 2400x1350 profile poster, scaled to fit and held in place while the details panel slides up over it; on phones and portrait screens the first view is a stacked overview of the same content. Details below are one column on phones and open to 2-5 columns at 640px and 960px. */
+  :root {
+    --ink: #0b1026;
+    --ink-2: #151c45;
+    --bg: #f4f6fb;
+    --surface: #ffffff;
+    --fg: #0f172a;
+    --muted: #586178;
+    --line: #e1e5ee;
+    --accent: #0e7490;
+    --gold: #b45309;
+    --gold-bg: #fef3c7;
+    --plate: #ffffff;
+    --plate-line: #e6e9f1;
+    --chip: #eef1f7;
+    --on-ink: #eef2ff;
+    --on-ink-muted: #b9c0dd;
+    --glow: #22d3ee;
+    --focus: #0e7490;
+    --shadow: 0 18px 40px -26px rgba(15, 23, 42, .35);
+    --font-display: "Plus Jakarta Sans", "Segoe UI", system-ui, -apple-system, sans-serif;
+    --font-body: "Plus Jakarta Sans", "Segoe UI", system-ui, -apple-system, sans-serif;
+    --font-mono: "JetBrains Mono", ui-monospace, "Cascadia Mono", Consolas, monospace;
+    --gutter-l: max(16px, env(safe-area-inset-left, 0px));
+    --gutter-r: max(16px, env(safe-area-inset-right, 0px));
+    --radius: 18px;
+    --ease: cubic-bezier(.22, 1, .36, 1);
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --bg: #0a0f1f; --surface: #111a31; --fg: #e7ebf5; --muted: #9aa4bb; --line: #223052;
+      --accent: #22d3ee; --gold: #fbbf24; --gold-bg: #3a2a08; --focus: #22d3ee;
+      --plate: #f5f7fb; --plate-line: #2a3758; --chip: #18233f; --shadow: 0 18px 40px -26px rgba(0, 0, 0, .7);
+      color-scheme: dark;
+    }
+  }
+  :root[data-theme="dark"] {
+    --bg: #0a0f1f; --surface: #111a31; --fg: #e7ebf5; --muted: #9aa4bb; --line: #223052;
+    --accent: #22d3ee; --gold: #fbbf24; --gold-bg: #3a2a08; --focus: #22d3ee;
+    --plate: #f5f7fb; --plate-line: #2a3758; --chip: #18233f; --shadow: 0 18px 40px -26px rgba(0, 0, 0, .7);
+    color-scheme: dark;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; }
+  html { scroll-behavior: smooth; scroll-padding-top: calc(env(safe-area-inset-top, 0px) + 64px); }
+  body { margin: 0; background: var(--bg); color: var(--fg); font: 400 1rem/1.6 var(--font-body); -webkit-font-smoothing: antialiased; overflow-x: clip; }
+  body::before { content: ""; position: fixed; inset: 0 0 auto; height: env(safe-area-inset-top, 0px); z-index: 30; background: var(--ink); }
+  img { display: block; max-width: 100%; }
+  a { color: inherit; }
+  h1, h2, h3 { font-family: var(--font-display); text-wrap: balance; margin: 0; }
+  p { margin: 0; }
+  :focus-visible { outline: 3px solid var(--focus); outline-offset: 3px; border-radius: 8px; }
+  .site-head, .m-hero, .contact, footer { --focus: #22d3ee; }
+  .wrap { max-width: 1180px; margin-inline: auto; padding-left: var(--gutter-l); padding-right: var(--gutter-r); }
+  .skip { position: absolute; left: 12px; top: -60px; z-index: 40; background: var(--glow); color: var(--ink); font-weight: 700; padding: 8px 14px; border-radius: 10px; text-decoration: none; }
+  .skip:focus { top: calc(env(safe-area-inset-top, 0px) + 10px); }
+  .eyebrow { font-family: var(--font-mono); font-size: .72rem; font-weight: 600; letter-spacing: .14em; text-transform: uppercase; color: var(--accent); }
+
+  /* ---------- sticky header: slides in once you scroll past the overview ---------- */
+  .site-head { position: fixed; inset: 0 0 auto; top: env(safe-area-inset-top, 0px); z-index: 20; background: var(--ink); color: var(--on-ink); border-bottom: 1px solid rgba(255, 255, 255, .08); transform: translate3d(0, -110%, 0); transition: transform .45s var(--ease); }
+  .site-head.show { transform: none; }
+  .head-grid { display: flex; align-items: center; justify-content: space-between; gap: 12px; padding-block: 6px; }
+  .brand { display: flex; align-items: center; gap: 10px; text-decoration: none; font-weight: 800; letter-spacing: -.2px; flex: none; }
+  .brand .mk { width: 32px; height: 32px; border-radius: 50%; display: grid; place-items: center; font-size: .68rem; background: var(--ink); box-shadow: 0 0 0 2px var(--glow), 0 0 0 4px rgba(79, 70, 229, .55); }
+  .brand .nm { display: none; }
+  .nav { overflow-x: auto; scrollbar-width: none; min-width: 0; }
+  .nav::-webkit-scrollbar { display: none; }
+  .nav ul { display: flex; gap: 4px; list-style: none; margin: 0; padding: 6px; width: max-content; }
+  .nav a { display: block; text-decoration: none; font-size: .82rem; font-weight: 600; color: var(--on-ink-muted); padding: 6px 12px; border-radius: 999px; white-space: nowrap; transition: color .2s ease, background-color .25s ease; }
+  .nav a:hover { color: #fff; background: rgba(255, 255, 255, .08); }
+  .nav a[aria-current="true"] { color: var(--ink); background: var(--glow); }
+
+  /* ---------- overview: shared ---------- */
+  .overview { position: relative; }
+  .stage, .ov-band, .ov-cue { display: none; }
+
+  /* ---------- overview: phones and portrait screens ---------- */
+  .m-hero { position: relative; overflow: hidden; color: var(--on-ink); background: radial-gradient(560px 300px at 100% -10%, rgba(34, 211, 238, .26), transparent 60%), radial-gradient(520px 320px at -20% 110%, rgba(79, 70, 229, .32), transparent 60%), linear-gradient(160deg, var(--ink), var(--ink-2)); }
+  .m-hero::after { content: ""; position: absolute; inset: 0; background-image: radial-gradient(rgba(255, 255, 255, .07) 1px, transparent 1px); background-size: 22px 22px; pointer-events: none; }
+  .m-hero-in { position: relative; z-index: 1; display: grid; gap: 16px; padding-block: 28px 26px; }
+  .m-id { display: flex; align-items: center; gap: 16px; }
+  .ring-spin { position: relative; flex: none; width: 88px; height: 88px; border-radius: 50%; isolation: isolate; }
+  .ring-spin::before { content: ""; position: absolute; inset: 0; border-radius: 50%; background: conic-gradient(from 200deg, #06b6d4, #4f46e5, #d946ef, #06b6d4); z-index: -1; }
+  .ring-spin span { position: absolute; inset: 4px; border-radius: 50%; background: #0d1233; display: grid; place-items: center; font-weight: 800; font-size: 1.7rem; letter-spacing: -1px; color: #fff; }
+  .m-name { min-width: 0; display: grid; gap: 4px; }
+  .m-hero .eyebrow { color: #7dd3fc; }
+  .m-hero h1 { font-size: clamp(2rem, 8.6vw, 3rem); line-height: 1.02; font-weight: 800; letter-spacing: -.04em; }
+  .m-hero h1 span { background: linear-gradient(90deg, #fff, #c7d2fe 45%, #67e8f9); -webkit-background-clip: text; background-clip: text; color: transparent; }
+  .m-role { font-weight: 700; color: #e0e7ff; font-size: 1rem; line-height: 1.35; }
+  .m-lede { color: var(--on-ink-muted); font-size: .95rem; max-width: 62ch; }
+  .m-chips { display: flex; flex-wrap: wrap; gap: 8px; }
+  .m-chip { display: inline-flex; align-items: center; gap: 8px; min-height: 40px; padding: 6px 14px; border-radius: 999px; background: rgba(255, 255, 255, .1); border: 1px solid rgba(255, 255, 255, .18); font-size: .85rem; font-weight: 600; text-decoration: none; color: #eef2ff; }
+  .m-chip img { width: 18px; height: 18px; }
+  .m-chip img.fl { width: 20px; height: 15px; border-radius: 2px; }
+  .m-stats { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; }
+  .m-stat { background: rgba(255, 255, 255, .07); border: 1px solid rgba(255, 255, 255, .14); border-radius: 16px; padding: 12px 14px; }
+  .m-stat b { display: block; font-size: 1.9rem; line-height: 1; font-weight: 800; letter-spacing: -.03em; background: linear-gradient(90deg, #fff, #67e8f9); -webkit-background-clip: text; background-clip: text; color: transparent; }
+  .m-stat span { display: block; margin-top: 6px; font-size: .78rem; line-height: 1.35; color: var(--on-ink-muted); font-weight: 600; }
+  .m-flags { display: flex; flex-wrap: nowrap; gap: 3px; margin-top: 8px; }
+  .m-flags img { flex: 1 1 0; min-width: 0; max-width: 20px; height: auto; aspect-ratio: 4 / 3; border-radius: 2px; }
+
+  .m-body { display: grid; gap: 30px; padding-block: 28px 8px; }
+  .m-sec { display: grid; gap: 12px; }
+  .m-h { display: flex; align-items: baseline; justify-content: space-between; gap: 12px; }
+  .m-h h2 { font-size: 1.35rem; font-weight: 800; letter-spacing: -.02em; line-height: 1.2; }
+  .m-h span { font-family: var(--font-mono); font-size: .68rem; color: var(--muted); letter-spacing: .08em; text-transform: uppercase; white-space: nowrap; }
+  .m-ai { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; }
+  .m-aic { position: relative; overflow: hidden; display: flex; flex-direction: column; align-items: center; text-align: center; gap: 2px; padding: 16px 10px 14px; border-radius: 22px; background: var(--surface); border: 1px solid var(--line); box-shadow: var(--shadow); text-decoration: none; }
+  .m-aic::before { content: ""; position: absolute; inset: 0 0 auto 0; height: 5px; background: var(--c); }
+  .m-aic .pl { width: 96px; height: 96px; border-radius: 26px; display: grid; place-items: center; background: var(--t); margin-bottom: 8px; }
+  .m-aic .pl img { width: 66px; height: 66px; object-fit: contain; }
+  .m-aic b { font-size: 1.08rem; font-weight: 800; letter-spacing: -.02em; }
+  .m-aic small { font-size: .78rem; color: var(--muted); font-weight: 600; }
+  .m-brands { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 10px; }
+  .m-brand { display: flex; flex-direction: column; align-items: center; gap: 6px; padding: 10px 6px 9px; border-radius: 16px; background: var(--surface); border: 1px solid var(--line); text-decoration: none; text-align: center; height: 100%; }
+  .m-brand .lg { width: 64px; height: 64px; border-radius: 16px; background: var(--plate); border: 1px solid var(--plate-line); display: grid; place-items: center; overflow: hidden; padding: 6px; }
+  .m-brand .lg img { width: 100%; height: 100%; object-fit: contain; }
+  .m-brand .lg.dark { background: #1b1f3b; border-color: #1b1f3b; }
+  .m-brand .lg.blk { background: #000; border-color: #000; padding: 0; }
+  .m-brand .lg.onv { flex-direction: column; color: #d64000; line-height: 1; padding: 4px; }
+  .m-brand .lg.onv small { font-size: .42rem; font-weight: 700; }
+  .m-brand .lg.onv b { font-size: 1rem; font-weight: 800; }
+  .m-brand b { font-size: .78rem; line-height: 1.2; font-weight: 700; }
+  .m-brand small { font-size: .66rem; color: var(--muted); font-weight: 600; margin-top: -4px; }
+  .marquee { display: grid; gap: 8px; overflow: hidden; -webkit-mask-image: linear-gradient(90deg, transparent, #000 7%, #000 93%, transparent); mask-image: linear-gradient(90deg, transparent, #000 7%, #000 93%, transparent); }
+  .mq-track { display: flex; gap: 8px; width: max-content; }
+  .mq-item { display: inline-flex; align-items: center; gap: 8px; padding: 5px 12px 5px 5px; border-radius: 999px; background: var(--surface); border: 1px solid var(--line); font-size: .8rem; font-weight: 600; white-space: nowrap; }
+  .mq-item .ic { width: 30px; height: 30px; border-radius: 50%; background: var(--plate); display: grid; place-items: center; }
+  .mq-item .ic img { width: 19px; height: 19px; object-fit: contain; }
+  .mq-item .ic .tx { width: 30px; height: 30px; border-radius: 50%; display: grid; place-items: center; font-family: var(--font-mono); font-size: .5rem; font-weight: 600; color: #fff; }
+  .m-creds { list-style: none; margin: 0; padding: 2px 2px 10px; display: grid; grid-auto-flow: column; grid-auto-columns: minmax(138px, 42%); gap: 10px; overflow-x: auto; scroll-snap-type: x mandatory; scrollbar-width: thin; }
+  .m-creds > li { scroll-snap-align: start; }
+  .m-cue { justify-self: center; display: inline-flex; align-items: center; gap: 8px; min-height: 44px; padding: 10px 18px; border-radius: 999px; background: var(--ink); color: #fff; font-weight: 700; font-size: .9rem; text-decoration: none; }
+  .m-cue .arrow, .ov-cue .arrow { display: inline-block; }
+
+  /* ---------- overview: wide landscape screens get the exact poster ---------- */
+  @media (min-width: 1100px) and (min-aspect-ratio: 5/4) {
+    .overview { position: sticky; top: 0; height: 100vh; height: 100svh; overflow: hidden; background: #f3f5fa; z-index: 0; }
+    .ov-inner { position: relative; height: 100%; transform-origin: 50% 0; will-change: transform, opacity; }
+    .ov-band { display: block; position: absolute; inset: 0 0 auto; height: calc(var(--s, .6) * 214px); background: linear-gradient(120deg, #0b1026 0%, #151b46 55%, #1a1f5c 100%); }
+    .stage { display: block; position: relative; margin-inline: auto; width: calc(var(--s, .6) * 2400px); height: calc(var(--s, .6) * 1350px); }
+    .poster { position: absolute; top: 0; left: 0; transform: scale(var(--s, .6)); transform-origin: 0 0; }
+    .ov-cue { display: flex; position: absolute; left: 50%; bottom: 8px; translate: -50% 0; align-items: center; gap: 8px; padding: 6px 14px; border-radius: 999px; font-size: .8rem; font-weight: 700; color: #0f172a; text-decoration: none; background: rgba(255, 255, 255, .7); border: 1px solid #e1e5ee; }
+    .ov-cue:hover { background: #fff; }
+    .m-over { display: none; }
+    .details { position: relative; z-index: 2; background: var(--bg); border-radius: 28px 28px 0 0; box-shadow: 0 -30px 60px -34px rgba(11, 16, 38, .55); }
+  }
+  .poster-anchor { position: relative; }
+
+  /* ---------- details ---------- */
+  section.band { padding-block: 48px; }
+  .details > section.band:first-child { padding-top: 40px; }
+  .sec-head { display: grid; gap: 6px; margin-bottom: 22px; }
+  .sec-head h2 { font-size: clamp(1.6rem, 5vw, 2.3rem); font-weight: 800; letter-spacing: -.03em; line-height: 1.1; }
+  .sec-head p { color: var(--muted); max-width: 60ch; }
+
+  .timeline { background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius); padding: 14px 14px 8px; margin-bottom: 18px; }
+  .tl-scroll { overflow-x: auto; }
+  .tl-inner { min-width: 520px; }
+  .track { position: relative; height: 52px; }
+  .seg { position: absolute; top: 0; height: 30px; border-radius: 8px; color: #fff; font-size: .7rem; font-weight: 800; display: flex; align-items: center; justify-content: center; white-space: nowrap; overflow: hidden; transform-origin: left center; }
+  .seg.lane2 { top: 34px; height: 16px; font-size: .62rem; border-radius: 6px; }
+  .seg.out { overflow: visible; }
+  .seg.out .lbl { position: absolute; right: calc(100% + 6px); top: 50%; transform: translateY(-50%); color: var(--muted); font-family: var(--font-mono); font-size: .62rem; font-weight: 600; }
+  .ticks { position: relative; height: 20px; border-top: 2px solid var(--line); font-family: var(--font-mono); }
+  .ticks span { position: absolute; top: 4px; transform: translateX(-50%); font-size: .66rem; font-weight: 600; color: var(--muted); }
+
+  .roles { list-style: none; margin: 0; padding: 0; display: grid; gap: 14px; }
+  .role-card { position: relative; background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius); padding: 16px; display: grid; gap: 12px; }
+  .role-card::before { content: ""; position: absolute; left: 0; top: 16px; bottom: 16px; width: 4px; border-radius: 0 4px 4px 0; background: var(--c); }
+  .rc-head { display: flex; gap: 12px; align-items: flex-start; }
+  .plate { flex: none; width: 52px; height: 52px; border-radius: 14px; background: var(--plate); border: 1px solid var(--plate-line); display: grid; place-items: center; overflow: hidden; }
+  .plate img { width: 38px; height: 38px; object-fit: contain; }
+  .plate.flag img { width: 36px; height: 27px; border-radius: 3px; box-shadow: 0 0 0 1px rgba(0, 0, 0, .08); }
+  .plate.dark { background: #000; border-color: #000; }
+  .plate.dark img { width: 52px; height: 52px; }
+  .rc-title { min-width: 0; display: grid; gap: 2px; }
+  .rc-title h3 { font-size: 1.08rem; font-weight: 800; letter-spacing: -.01em; line-height: 1.25; }
+  .rc-title h3 a { text-decoration: none; }
+  .rc-title h3 a:hover { text-decoration: underline; text-underline-offset: 3px; }
+  .rc-title .r { font-size: .9rem; font-weight: 600; color: var(--muted); }
+  .when { font-family: var(--font-mono); font-size: .74rem; font-weight: 600; color: color-mix(in srgb, var(--c) 55%, var(--fg)); }
+  .now { display: inline-block; margin-left: 6px; font-size: .62rem; letter-spacing: .08em; text-transform: uppercase; color: #fff; background: var(--c); border-radius: 5px; padding: 1px 6px; vertical-align: 1px; }
+  .rc-body ul { margin: 0; padding-left: 1.1em; display: grid; gap: 4px; font-size: .92rem; }
+  .rc-body li::marker { color: var(--c); }
+  .rc-body p { font-size: .92rem; color: var(--muted); }
+  .clients { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 220px), 1fr)); gap: 10px; }
+  .client { position: relative; display: flex; align-items: center; gap: 10px; padding: 10px; border-radius: 14px; background: var(--chip); text-decoration: none; min-width: 0; transition: background-color .25s ease; }
+  a.client:hover { background: color-mix(in srgb, var(--chip) 85%, var(--accent) 15%); }
+  a.client:hover .txt span, a.client:hover .cc { color: var(--fg); }
+  .client .logo { flex: none; width: 64px; height: 64px; border-radius: 14px; background: var(--plate); border: 1px solid var(--plate-line); display: grid; place-items: center; overflow: hidden; padding: 6px; }
+  .client .logo img { width: 100%; height: 100%; object-fit: contain; }
+  .client .logo.dark { background: #1b1f3b; border-color: #1b1f3b; }
+  .client .logo.onv { flex-direction: column; color: #d64000; line-height: 1; padding: 4px; }
+  .client .logo.onv small { font-size: .45rem; font-weight: 700; }
+  .client .logo.onv b { font-size: 1.05rem; font-weight: 800; }
+  .client .txt { min-width: 0; display: grid; gap: 2px; }
+  .client .txt b { font-size: .9rem; line-height: 1.25; }
+  .client .txt span { font-size: .74rem; color: var(--muted); font-weight: 600; display: flex; flex-wrap: wrap; gap: 4px; align-items: center; }
+  .cc { display: inline-flex; align-items: center; gap: 3px; font-family: var(--font-mono); font-size: .64rem; font-weight: 600; color: var(--muted); }
+  .cc img { width: 16px; height: 12px; border-radius: 2px; box-shadow: 0 0 0 1px rgba(0, 0, 0, .1); }
+
+  .skills { display: grid; gap: 12px; }
+  .sk-group { background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius); padding: 14px; }
+  .sk-group h3, .list-card h3 { font-family: var(--font-mono); font-size: .72rem; font-weight: 600; letter-spacing: .12em; text-transform: uppercase; color: var(--accent); margin-bottom: 10px; }
+  .chips { display: flex; flex-wrap: wrap; gap: 8px; list-style: none; margin: 0; padding: 0; }
+  .chip { display: inline-flex; align-items: center; gap: 8px; padding: 5px 10px 5px 5px; border-radius: 999px; background: var(--chip); font-size: .82rem; font-weight: 600; text-decoration: none; transition: background-color .25s ease; }
+  a.chip:hover { background: color-mix(in srgb, var(--chip) 80%, var(--accent) 20%); }
+  .chip .ic { width: 28px; height: 28px; border-radius: 50%; background: var(--plate); display: grid; place-items: center; flex: none; }
+  .chip .ic img { width: 18px; height: 18px; object-fit: contain; }
+  .chip .ic.tx { font-family: var(--font-mono); font-size: .52rem; font-weight: 600; color: #fff; background: var(--t); }
+
+  .creds { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; list-style: none; margin: 0; padding: 0; }
+  .cred { position: relative; height: 100%; display: flex; flex-direction: column; align-items: center; text-align: center; gap: 6px; padding: 18px 10px 14px; border-radius: var(--radius); background: var(--surface); border: 1px solid var(--line); text-decoration: none; transition: translate .35s var(--ease), border-color .25s ease; }
+  .cred:hover { translate: 0 -3px; border-color: var(--accent); }
+  .medal { position: relative; overflow: hidden; width: 72px; height: 72px; border-radius: 50%; display: grid; place-items: center; border: 3px solid transparent; background-image: linear-gradient(var(--plate), var(--plate)), linear-gradient(135deg, #4f46e5, #22d3ee); background-origin: border-box; background-clip: padding-box, border-box; transition: transform .45s var(--ease); }
+  .cred.award .medal { background-image: linear-gradient(var(--plate), var(--plate)), linear-gradient(135deg, #f59e0b, #fde68a, #d97706); }
+  .medal img { width: 42px; height: 42px; object-fit: contain; }
+  .medal.duo { grid-auto-flow: column; gap: 2px; }
+  .medal.duo img { width: 22px; height: 22px; }
+  .cred b { font-size: .84rem; line-height: 1.3; }
+  .cred i { font-style: normal; font-size: .74rem; color: var(--muted); font-weight: 600; margin-top: auto; }
+  .yr { position: absolute; top: 6px; right: 6px; font-family: var(--font-mono); font-size: .62rem; font-weight: 600; color: var(--accent); background: var(--chip); border-radius: 6px; padding: 1px 6px; }
+  .cred.award .yr { color: var(--gold); background: var(--gold-bg); }
+  .kind { font-family: var(--font-mono); font-size: .6rem; letter-spacing: .1em; text-transform: uppercase; color: var(--gold); font-weight: 600; }
+  .cred-main { display: flex; flex-direction: column; align-items: center; gap: 6px; text-decoration: none; border-radius: 12px; }
+  .cred-main:hover b { text-decoration: underline; text-underline-offset: 3px; }
+  .qs { display: flex; gap: 6px; margin-top: 2px; }
+  .q { display: inline-flex; align-items: center; justify-content: center; min-width: 44px; min-height: 32px; padding: 4px 12px; border-radius: 999px; font-family: var(--font-mono); font-size: .72rem; font-weight: 600; text-decoration: none; color: var(--gold); background: var(--gold-bg); border: 1px solid color-mix(in srgb, var(--gold) 40%, transparent); transition: background-color .25s ease; }
+  .q:hover { background: color-mix(in srgb, var(--gold-bg) 70%, var(--gold) 30%); color: var(--fg); }
+
+  .duo-cols { display: grid; gap: 14px; }
+  .list-card { background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius); padding: 6px 16px; }
+  .list-card h3 { padding-top: 12px; margin-bottom: 0; }
+  .li { display: flex; gap: 12px; align-items: center; padding-block: 12px; border-top: 1px dashed var(--line); text-decoration: none; }
+  .list-card h3 + .li { border-top: none; }
+  .li .plate { width: 44px; height: 44px; border-radius: 12px; }
+  .li .plate img { width: 30px; height: 30px; }
+  .li .t { min-width: 0; flex: 1; display: grid; gap: 1px; }
+  .li .t b { font-size: .92rem; line-height: 1.3; }
+  .li .t span { font-size: .8rem; color: var(--muted); }
+  .li .y { font-family: var(--font-mono); font-size: .74rem; font-weight: 600; color: var(--accent); }
+  a.li:hover b { text-decoration: underline; text-underline-offset: 3px; }
+
+  .contact { background: linear-gradient(160deg, var(--ink), var(--ink-2)); color: var(--on-ink); }
+  .contact-in { display: grid; gap: 18px; padding-block: 44px; }
+  .contact .eyebrow { color: #7dd3fc; }
+  .contact h2 { font-size: clamp(1.7rem, 5.5vw, 2.6rem); font-weight: 800; letter-spacing: -.03em; }
+  .contact p { color: var(--on-ink-muted); max-width: 56ch; }
+  .mail { display: flex; flex-wrap: wrap; align-items: center; gap: 10px; }
+  .mail code { font-family: var(--font-mono); font-size: .95rem; background: rgba(255, 255, 255, .08); border: 1px solid rgba(255, 255, 255, .18); border-radius: 10px; padding: 9px 12px; user-select: all; overflow-wrap: anywhere; }
+  .btn { display: inline-flex; align-items: center; gap: 8px; min-height: 44px; padding: 10px 16px; border-radius: 12px; font-weight: 700; font-size: .92rem; text-decoration: none; border: 1px solid transparent; cursor: pointer; font-family: inherit; }
+  .btn img { width: 18px; height: 18px; }
+  .btn-primary { position: relative; overflow: hidden; background: var(--glow); color: var(--ink); }
+  .btn-primary:hover { background: #67e8f9; }
+  .btn-ghost { background: rgba(255, 255, 255, .08); border-color: rgba(255, 255, 255, .2); color: #fff; }
+  .btn-ghost:hover { background: rgba(255, 255, 255, .14); }
+  .copied { font-size: .82rem; color: #67e8f9; min-height: 1.2em; }
+  footer { background: var(--ink); color: var(--on-ink-muted); font-size: .8rem; }
+  footer .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 8px; padding-block: 18px calc(18px + env(safe-area-inset-bottom, 0px)); border-top: 1px solid rgba(255, 255, 255, .08); }
+
+  @media (min-width: 640px) {
+    .brand .nm { display: inline; }
+    .m-ai { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+    .m-brands { grid-template-columns: repeat(auto-fill, minmax(118px, 1fr)); }
+    .m-stats { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+    .m-creds { grid-auto-columns: minmax(150px, 24%); }
+    .skills { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .creds { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+    .duo-cols { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .tl-inner { min-width: 0; }
+    .seg { font-size: .74rem; }
+  }
+  @media (min-width: 960px) {
+    section.band { padding-block: 64px; }
+    .role-card { grid-template-columns: 170px minmax(0, 1fr); column-gap: 24px; padding: 20px 22px; }
+    .role-card .when-col { grid-row: span 3; padding-top: 4px; }
+    .role-card .when-col .when { display: block; font-size: .8rem; }
+    .role-card .when-col .now { margin: 6px 0 0; }
+    .role-card .rc-head .when { display: none; }
+    .skills { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+    .creds { grid-template-columns: repeat(5, minmax(0, 1fr)); }
+  }
+  @media (max-width: 959.98px) {
+    .role-card .when-col { display: none; }
+  }
+
+  /* ---------- motion: transform and opacity only, so it stays on the compositor ---------- */
+  @keyframes spin { to { transform: rotate(360deg); } }
+  @keyframes pin { from { opacity: 0; transform: translate3d(0, 26px, 0) scale(.985); } to { opacity: 1; transform: none; } }
+  @keyframes fadein { from { opacity: 0; } to { opacity: 1; } }
+  @keyframes bob { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(4px); } }
+  @keyframes marquee { to { transform: translate3d(-50%, 0, 0); } }
+  @keyframes grow { from { transform: scaleX(0); } to { transform: scaleX(1); } }
+  @keyframes shine { from { transform: translateX(-160%) skewX(-18deg); } to { transform: translateX(260%) skewX(-18deg); } }
+  .m-aic, .m-brand, a.chip .ic, a.client .logo, .mq-item { transition: translate .4s var(--ease), border-color .25s ease, transform .4s var(--ease); }
+  .m-aic:hover, .m-brand:hover { translate: 0 -3px; border-color: var(--accent); }
+  .cred:hover .medal, .cred-main:hover .medal { transform: rotate(-8deg) scale(1.05); }
+  a.chip:hover .ic, a.client:hover .logo { transform: scale(1.08); }
+  .medal::after, .btn-primary::after { content: ""; position: absolute; top: -10%; bottom: -10%; left: 0; width: 40%; background: linear-gradient(90deg, transparent, rgba(255, 255, 255, .8), transparent); transform: translateX(-160%) skewX(-18deg); pointer-events: none; }
+  @media (prefers-reduced-motion: no-preference) {
+    html.js:not(.ready) .anim { opacity: 0; }
+    html.ready .anim { animation: pin .9s var(--ease) both; animation-delay: calc(var(--i, 0) * 55ms + 80ms); }
+    html.ready .poster .p-head.anim { animation: fadein .8s ease both; }
+    .ring-spin::before, .poster .p-mono::before { animation: spin 14s linear infinite; }
+    .ov-cue .arrow, .m-cue .arrow { animation: bob 1.8s ease-in-out infinite; }
+    .mq-track { animation: marquee 46s linear infinite; }
+    .mq-track.rev { animation-direction: reverse; animation-duration: 54s; }
+    .marquee:hover .mq-track { animation-play-state: paused; }
+    html.js .reveal { opacity: 0; transform: translate3d(0, 18px, 0); }
+    html.js .reveal.in { opacity: 1; transform: none; transition: opacity .6s ease, transform .8s var(--ease); transition-delay: var(--rd, 0ms); }
+    html.js .timeline .seg { transform: scaleX(0); }
+    html.js .timeline.in .seg { transform: scaleX(1); transition: transform .9s var(--ease); transition-delay: calc(var(--i, 0) * 70ms + 150ms); }
+    .cred.award:hover .medal::after, .cred.award .cred-main:hover .medal::after { animation: shine .9s ease; }
+    .btn-primary:hover::after { animation: shine .8s ease; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    *, *::before, *::after { transition: none !important; animation: none !important; }
+    .marquee { overflow-x: auto; }
+    .mq-track[aria-hidden="true"], .mq-dup { display: none; }
+  }
+
+  /* ---------- poster (the profile image, rebuilt in HTML) ---------- */
+  .poster{--bg:#f3f5fa;--card:#fff;--ink:#0f172a;--muted:#5b6478;--line:#e3e7ef;--a1:#4f46e5;--a2:#06b6d4;--a3:#d946ef}
+  .poster *{box-sizing:border-box;margin:0;padding:0;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  .poster{background:var(--bg)}
+  .poster{width:2400px;height:1350px;overflow:hidden;font-family:"Plus Jakarta Sans",Segoe UI,Arial,sans-serif;color:var(--ink);-webkit-font-smoothing:antialiased}
+  .poster img{display:block}
+  .poster a.p-hit{position:absolute;inset:0;display:block;z-index:5;border-radius:inherit}
+  .poster .p-head{position:relative;overflow:hidden;height:214px;background:radial-gradient(1200px 500px at 85% -30%,rgba(6,182,212,.35),transparent 60%),radial-gradient(900px 500px at 0% 140%,rgba(217,70,239,.30),transparent 60%),linear-gradient(120deg,#0b1026 0%,#151b46 55%,#1a1f5c 100%);color:#fff;padding:0 44px;display:flex;gap:32px;align-items:center}
+  .poster .p-head::after{content:"";position:absolute;inset:0;background-image:radial-gradient(rgba(255,255,255,.08) 1px,transparent 1px);background-size:22px 22px;pointer-events:none}
+  .poster .p-mono{position:relative;z-index:1;flex:none;width:136px;height:136px;border-radius:50%;padding:5px;background:conic-gradient(from 200deg,var(--a2),var(--a1),var(--a3),var(--a2))}
+  .poster .p-mono div{width:100%;height:100%;border-radius:50%;background:#0d1233;display:grid;place-items:center;font-weight:800;font-size:46px;letter-spacing:-1px}
+  .poster .p-who{flex:1;position:relative;z-index:1;min-width:0}
+  .poster .p-kicker{font-size:13px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:#7dd3fc}
+  .poster h1{font-size:62px;line-height:1;font-weight:800;letter-spacing:-2px;margin:6px 0 8px;display:flex;align-items:baseline;gap:22px}
+  .poster h1 span{background:linear-gradient(90deg,#fff 0%,#c7d2fe 40%,#67e8f9 100%);-webkit-background-clip:text;color:transparent}
+  .poster h1 small{font-size:24px;font-weight:700;letter-spacing:-.3px;color:#e0e7ff;-webkit-text-fill-color:#e0e7ff}
+  .poster .p-summary{font-size:15px;line-height:1.5;color:#c3c9e6;max-width:1180px}
+  .poster .p-chips{display:flex;gap:10px;margin-top:12px}
+  .poster .p-chip{position:relative;display:flex;align-items:center;gap:8px;background:rgba(255,255,255,.10);border:1px solid rgba(255,255,255,.18);border-radius:999px;padding:6px 14px;font-size:13.5px;font-weight:600;color:#eef2ff}
+  .poster .p-chip img{width:17px;height:17px}
+  .poster .p-stats{position:relative;z-index:1;flex:none;display:grid;grid-template-columns:repeat(4,172px);gap:12px}
+  .poster .p-stat{background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.16);border-radius:18px;padding:16px 16px 14px}
+  .poster .p-stat b{display:block;font-size:44px;line-height:1;font-weight:800;background:linear-gradient(90deg,#fff,#67e8f9);-webkit-background-clip:text;color:transparent}
+  .poster .p-stat span{display:block;margin-top:7px;font-size:13px;line-height:1.35;color:#c3c9e6;font-weight:600}
+  .poster .p-main{display:grid;grid-template-columns:600px 1fr 700px;gap:28px;padding:14px 44px 0;height:1116px}
+  .poster .p-col{display:flex;flex-direction:column;gap:11px;min-width:0}
+  .poster .p-sh{display:flex;align-items:center;gap:12px;height:34px}
+  .poster .p-sh .p-n{font-size:12px;font-weight:800;color:#fff;background:linear-gradient(135deg,var(--a1),var(--a2));border-radius:7px;padding:4px 8px;letter-spacing:1px}
+  .poster .p-sh h2{font-size:25px;font-weight:800;letter-spacing:-.5px;white-space:nowrap}
+  .poster .p-sh p{font-size:14px;color:var(--muted);font-weight:500;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+  .poster .p-ai{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+  .poster .p-aic{position:relative;background:var(--card);border-radius:24px;padding:22px 18px 18px;display:flex;flex-direction:column;align-items:center;text-align:center;border:1px solid var(--line);box-shadow:0 18px 40px -24px rgba(30,41,99,.35);overflow:hidden}
+  .poster .p-aic::before{content:"";position:absolute;inset:0 0 auto 0;height:6px;background:var(--c)}
+  .poster .p-aic .p-ring{width:164px;height:164px;border-radius:40px;display:grid;place-items:center;background:var(--t)}
+  .poster .p-aic .p-ring img{width:118px;height:118px;object-fit:contain}
+  .poster .p-aic h3{margin-top:16px;font-size:28px;font-weight:800;letter-spacing:-.5px}
+  .poster .p-aic .p-by{margin-top:2px;font-size:15px;font-weight:600;color:var(--muted)}
+  .poster .p-aic .p-use{margin-top:8px;font-size:13.5px;line-height:1.4;color:#334155}
+  .poster .p-tl{background:var(--card);border:1px solid var(--line);border-radius:20px;padding:12px 18px 4px}
+  .poster .p-track{position:relative;height:56px}
+  .poster .p-seg{position:absolute;top:0;height:33px;border-radius:9px;color:#fff;font-size:12px;font-weight:800;display:flex;align-items:center;justify-content:center;white-space:nowrap;overflow:hidden;box-shadow:inset 0 -3px 0 rgba(0,0,0,.12)}
+  .poster .p-ticks{position:relative;height:18px;border-top:2px solid var(--line)}
+  .poster .p-ticks span{position:absolute;top:4px;transform:translateX(-50%);font-size:11.5px;font-weight:700;color:var(--muted)}
+  .poster .p-ticks span::before{content:"";position:absolute;left:50%;top:-8px;width:2px;height:6px;background:#cbd2df}
+  .poster .p-jobs{flex:1;display:grid;grid-template-columns:repeat(6,1fr);grid-template-rows:repeat(4,1fr);gap:10px}
+  .poster .p-job{grid-column:span 3}
+  .poster .p-job.p-third{grid-column:span 2}
+  .poster .p-job.p-third .p-jh .p-when{position:absolute;right:0;top:-2px}
+  .poster .p-job.p-third .p-jh{padding-top:14px}
+  .poster .p-job.p-third .p-jh b{font-size:15px}
+  .poster .p-job{background:var(--card);border:1px solid var(--line);border-radius:20px;padding:12px 14px 12px 18px;display:flex;flex-direction:column;position:relative;overflow:hidden}
+  .poster .p-job::before{content:"";position:absolute;left:0;top:0;bottom:0;width:6px;background:var(--c)}
+  .poster .p-jh{position:relative;display:flex;gap:12px;align-items:center;border-radius:12px}
+  .poster .p-jh .p-lg{flex:none;width:42px;height:42px;border-radius:12px;border:1px solid var(--line);display:grid;place-items:center;background:#fff;overflow:hidden}
+  .poster .p-jh .p-lg img{width:34px;height:34px;object-fit:contain}
+  .poster .p-jh .p-lg.p-txt{font-weight:800;font-size:14px;color:#fff;background:var(--c);border:none}
+  .poster .p-jh b{display:block;font-size:16.5px;font-weight:800;line-height:1.2}
+  .poster .p-jh i{display:block;font-style:normal;font-size:12.5px;color:var(--muted);font-weight:600;margin-top:1px}
+  .poster .p-jh .p-when{margin-left:auto;align-self:flex-start;font-size:12.5px;font-weight:800;color:var(--c);white-space:nowrap}
+  .poster .p-clients{display:flex;gap:10px;margin-top:auto}
+  .poster .p-cl{position:relative;flex:1 1 0;background:#f7f8fc;border:1px solid var(--line);border-radius:14px;padding:8px 6px 6px;display:flex;flex-direction:column;align-items:center;gap:4px;text-align:center}
+  .poster .p-cl .p-logo{height:50px;display:grid;place-items:center}
+  .poster .p-cl .p-logo img{width:50px;height:50px;object-fit:contain;border-radius:11px}
+  .poster .p-cl .p-logo img.p-wide{width:160px;height:42px;border-radius:0}
+  .poster .p-cl .p-logo .p-mk{width:58px;height:58px;border-radius:14px;display:grid;place-items:center;color:#fff;font-weight:800;font-size:19px}
+  .poster .p-cl span{font-size:13px;font-weight:800;line-height:1.2}
+  .poster .p-cl em{font-style:normal;font-size:11.5px;font-weight:700;color:var(--muted)}
+  .poster .p-cc{display:inline-flex;align-items:center;gap:4px;font-size:10px;font-weight:800;letter-spacing:.5px;color:#475569;background:#e8ecf4;border-radius:5px;padding:2px 5px 2px 3px;margin-left:3px;vertical-align:-2px}
+  .poster .p-cc img{width:16px;height:12px;border-radius:2px;box-shadow:0 0 0 1px rgba(0,0,0,.08)}
+  .poster .p-cl .p-logo img.p-mid{width:108px;height:50px;border-radius:0}
+  .poster .p-onv{display:flex;flex-direction:column;align-items:flex-start;justify-content:center;height:50px;color:#d64000;line-height:1.05}
+  .poster .p-onv small{font-size:11px;font-weight:700}
+  .poster .p-onv b{font-size:28px;font-weight:800;letter-spacing:-.5px}
+  .poster .p-flags{display:flex;gap:3px;margin-top:8px}
+  .poster .p-flags img{width:17px;height:13px;border-radius:2px}
+  .poster .p-lg.p-flag{background:#fff}
+  .poster .p-lg.p-flag img{width:38px!important;height:28px!important;border-radius:3px;box-shadow:0 0 0 1px rgba(0,0,0,.08)}
+  .poster .p-tech{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+  .poster .p-tg{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:10px 12px 8px}
+  .poster .p-tg h4, .poster .p-fc h4{font-size:11.5px;font-weight:800;letter-spacing:1.4px;text-transform:uppercase;color:var(--a1);margin:0 0 8px 2px}
+  .poster .p-icons{display:flex;flex-wrap:wrap;gap:6px 4px}
+  .poster .p-ti{position:relative;width:60px;display:flex;flex-direction:column;align-items:center;gap:4px;border-radius:8px;padding-top:2px}
+  .poster .p-ti img, .poster .p-ti .p-tx{width:30px;height:30px;object-fit:contain}
+  .poster .p-ti .p-tx{border-radius:8px;display:grid;place-items:center;font-size:10px;font-weight:800;color:#fff;letter-spacing:-.2px}
+  .poster .p-ti span{font-size:10.5px;font-weight:700;color:#334155;text-align:center;line-height:1.15}
+  .poster .p-badges{flex:1;display:grid;grid-template-columns:repeat(5,1fr);grid-template-rows:1fr 1fr;gap:10px}
+  .poster .p-bd{position:relative;background:var(--card);border:1px solid var(--line);border-radius:16px;padding:9px 7px 7px;display:flex;flex-direction:column;align-items:center;text-align:center;gap:4px}
+  .poster .p-bd .p-medal{width:56px;height:56px;flex:none;border-radius:50%;display:grid;place-items:center;border:4px solid transparent;background-image:linear-gradient(#fff,#fff),linear-gradient(135deg,var(--a1),var(--a2));background-origin:border-box;background-clip:padding-box,border-box;margin-bottom:3px}
+  .poster .p-bd.p-award .p-medal{background-image:linear-gradient(#fff,#fff),linear-gradient(135deg,#f59e0b,#fde68a,#d97706)}
+  .poster .p-bd .p-medal img{width:34px;height:34px;object-fit:contain}
+  .poster .p-bd .p-medal.p-duo{grid-auto-flow:column;gap:2px}
+  .poster .p-bd .p-medal.p-duo img{width:22px;height:22px}
+  .poster .p-bd b{font-size:11.5px;font-weight:800;line-height:1.25}
+  .poster .p-bd i{font-style:normal;font-size:10.5px;font-weight:600;color:var(--muted);margin-top:auto}
+  .poster .p-bd .p-y{position:absolute;top:8px;right:8px;font-size:10px;font-weight:800;color:var(--a1);background:#eef0ff;border-radius:5px;padding:1px 6px}
+  .poster .p-bd-main{position:relative;display:flex;flex-direction:column;align-items:center;gap:4px;border-radius:12px}
+  .poster .p-qs{display:flex;gap:6px;margin-top:auto}
+  .poster .p-q{position:relative;font-size:10.5px;font-weight:800;color:#b45309;background:#fef3c7;border:1px solid #fcd34d;border-radius:999px;padding:2px 12px}
+  .poster .p-bd.p-award i{margin-top:2px}
+  .poster .p-bd.p-award .p-y{color:#b45309;background:#fef3c7}
+  .poster .p-fc{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:14px 16px 8px}
+  .poster .p-row{position:relative;display:flex;gap:12px;align-items:center;padding:8px 0;border-top:1px dashed var(--line)}
+  .poster .p-fc h4+.p-row{border-top:none}
+  .poster .p-row img{flex:none;width:34px;height:34px;object-fit:contain;border-radius:8px}
+  .poster .p-row b{display:block;font-size:13.5px;font-weight:800;line-height:1.25}
+  .poster .p-row i{display:block;font-style:normal;font-size:12px;color:var(--muted);font-weight:600}
+  .poster .p-row .p-yr{margin-left:auto;font-size:12px;font-weight:800;color:var(--a1)}
+  .poster{line-height:normal;font-size:16px;letter-spacing:normal;text-align:left}
+  .poster img{max-width:none}
+  .poster .p-mono{background:none;isolation:isolate}
+  .poster .p-mono::before{content:"";position:absolute;inset:0;border-radius:50%;background:conic-gradient(from 200deg,#06b6d4,#4f46e5,#d946ef,#06b6d4);z-index:-1}
+  .poster .p-aic,.poster .p-cl,.poster .p-bd,.poster .p-ti,.poster .p-row,.poster .p-chip{transition:translate .35s cubic-bezier(.22,1,.36,1),box-shadow .35s ease,background-color .25s ease}
+  .poster .p-aic:hover,.poster .p-bd:hover,.poster .p-cl:hover{translate:0 -4px;box-shadow:0 18px 36px -22px rgba(30,41,99,.5)}
+  .poster .p-ti:hover,.poster .p-row:hover{translate:0 -2px}
+  .poster .p-chip:hover{background:rgba(255,255,255,.18)}
+
+</style>
+
+</head>
+<body>
+<!-- body -->
+<a class="skip" href="#experience">Skip to details</a>
+
+<header class="site-head" id="site-head">
+  <div class="wrap head-grid">
+    <a class="brand" href="#overview"><span class="mk" aria-hidden="true">RNG</span><span class="nm">Raymond Neil Galor</span></a>
+    <nav class="nav" aria-label="Sections">
+      <ul>
+        <li><a href="#overview">Overview</a></li>
+        <li><a href="#experience">Experience</a></li>
+        <li><a href="#skills">Tech Stack</a></li>
+        <li><a href="#credentials">Credentials</a></li>
+        <li><a href="#education">Education</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <section class="overview" id="overview" aria-label="Profile overview">
+    <div class="ov-inner" id="ov-inner">
+      <div class="ov-band" aria-hidden="true"></div>
+      <div class="stage" id="stage">
+<div class="poster">
+<div class="p-head anim">
+  <div class="p-mono"><div>RNG</div></div>
+  <div class="p-who">
+    <h1><span>Raymond Neil Galor</span><small>Software Engineering Manager &amp; AI Engineer</small></h1>
+    <p class="p-summary">Software Engineering Manager and AI Engineer building enterprise web, mobile and cloud software. Leads and manages Agile/Scrum teams, sets SDLC and CI/CD standards and delivers applications on Google Cloud (GCP). Applied AI work spans an enterprise AI platform with MCP tool servers, LLM invoice automation and guardrailed multi-agent Claude Code builds in Python and TypeScript.</p>
+    <div class="p-chips">
+      <div class="p-chip" data-href="https://www.linkedin.com/in/raymond-neil-galor/"><img src="assets/tech/linkedin.svg" alt="">linkedin.com/in/raymond-neil-galor</div>
+      <div class="p-chip" data-href="mailto:raymondgalor@gmail.com">raymondgalor@gmail.com</div>
+      <div class="p-chip"><img src="assets/flags/ca.svg" alt="" style="width:20px;height:15px;border-radius:2px">Ontario, Canada</div>
+    </div>
+  </div>
+  <div class="p-stats">
+    <div class="p-stat"><b>10+</b><span>years in enterprise software (since 2014)</span></div>
+    <div class="p-stat"><b>10+</b><span>companies, from start-up to IBM &amp; Accenture</span></div>
+    <div class="p-stat"><b>12+</b><span>brands &amp; products delivered</span></div>
+    <div class="p-stat"><b>7+</b><div class="p-flags"><img src="assets/flags/ph.svg"><img src="assets/flags/au.svg"><img src="assets/flags/us.svg"><img src="assets/flags/ca.svg"><img src="assets/flags/gr.svg"><img src="assets/flags/jp.svg"><img src="assets/flags/nz.svg"></div><span>markets served</span></div>
+  </div>
+</div>
+
+<div class="p-main">
+  <!-- ======= column 1: AI + education + community ======= -->
+  <div class="p-col">
+    <div class="p-sh anim" style="--i:3"><span class="p-n">01</span><h2>AI-Powered Engineering</h2><p>My daily AI toolkit</p></div>
+    <div class="p-ai">
+      <div class="p-aic anim" style="--i:4;--c:#D97757;--t:#FBF0EB" data-href="https://claude.com/product/claude-code">
+        <div class="p-ring"><img src="assets/tech/claude.svg" alt=""></div>
+        <h3>Claude Code</h3><div class="p-by">Anthropic</div>
+        <div class="p-use">Agentic coding, refactors, reviews &amp; docs</div>
+      </div>
+      <div class="p-aic anim" style="--i:5;--c:#111827;--t:#F1F2F4" data-href="https://openai.com/codex/">
+        <div class="p-ring"><img src="assets/tech/openai.svg" alt=""></div>
+        <h3>Codex</h3><div class="p-by">OpenAI</div>
+        <div class="p-use">Code generation &amp; task automation</div>
+      </div>
+      <div class="p-aic anim" style="--i:6;--c:linear-gradient(90deg,#4285F4,#9B72CB,#D96570);--t:#EEF2FD" data-href="https://gemini.google.com/">
+        <div class="p-ring"><img src="assets/tech/gemini.svg" alt=""></div>
+        <h3>Gemini</h3><div class="p-by">Google</div>
+        <div class="p-use">Research, multimodal &amp; Google Cloud AI</div>
+      </div>
+      <div class="p-aic anim" style="--i:7;--c:linear-gradient(90deg,#0078D4,#8661C5);--t:#EEF1FB" data-href="https://github.com/features/copilot">
+        <div class="p-ring"><img src="assets/tech/copilot.svg" alt=""></div>
+        <h3>Copilot</h3><div class="p-by">Microsoft · GitHub</div>
+        <div class="p-use">In-editor pair programming</div>
+      </div>
+    </div>
+
+    <div class="p-fc anim" style="--i:8"><h4>Education</h4>
+      <div class="p-row" data-href="https://unfc.ca/"><img src="assets/hires/unfc_mark.png"><div><b>Master of Management, Major in Emerging Technology</b><i>University of Niagara Falls Canada · With Distinction, President&#8217;s Honour Roll</i></div><span class="p-yr">2026</span></div>
+      <div class="p-row" data-href="https://www.feutech.edu.ph/"><img src="assets/hires/feutech_mark.png"><div><b>BS Information Technology, Major in Web and Mobile Application</b><i>Far Eastern University Institute of Technology</i></div><span class="p-yr">2015</span></div>
+    </div>
+    <div class="p-fc anim" style="--i:9"><h4>Community Leadership</h4>
+      <div class="p-row" data-href="https://unfc.ca/"><img src="assets/tech/microsoft.svg"><div><b>President</b><i>UNF Tech Student Community · Microsoft Technologies</i></div><span class="p-yr">2026</span></div>
+      <div class="p-row" data-href="https://gdg.community.dev/"><img src="assets/hires/gdg_mark.png"><div><b>Vice President</b><i>Google Developer Groups on Campus Niagara Falls</i></div><span class="p-yr">2026</span></div>
+      <div class="p-row" data-href="https://ftp-yyz.ca/"><img src="assets/brand/ftpyyz1.png"><div><b>Director · VP, Technology</b><i>Filipino Tech Professionals of YYZ</i></div><span class="p-yr">2026</span></div>
+    </div>
+  </div>
+
+  <!-- ======= column 2: career + brands ======= -->
+  <div class="p-col">
+    <div class="p-sh anim" style="--i:3"><span class="p-n">02</span><h2>Companies &amp; Brands I've Built For</h2><p>2014 → present · employers and the client products I delivered</p></div>
+    <div class="p-tl anim" style="--i:4">
+      <div class="p-track" id="p-track"></div>
+      <div class="p-ticks" id="p-ticks"></div>
+    </div>
+    <div class="p-jobs anim" style="--i:5">
+      <div class="p-job p-third anim" style="--i:6;--c:#c2410c">
+        <div class="p-jh" data-href="https://frontiertowersphilippines.com/"><div class="p-lg"><img src="assets/hires/ftap_mark.png" alt=""></div><div><b>Frontier Towers Philippines</b><i>Software/Solutions Engineering Manager</i></div><span class="p-when">May 2026 – Present</span></div>
+        <div class="p-clients">
+          <div class="p-cl" data-href="https://frontiertowersphilippines.com/"><div class="p-logo"><img class="p-wide" src="assets/hires/ftap_wordmark.webp" alt=""></div><span>FTAP</span><em>Telecom towers <span class="p-cc"><img src="assets/flags/ph.svg" alt="">PH</span></em></div>
+        </div>
+      </div>
+      <div class="p-job p-third anim" style="--i:7;--c:#0f766e">
+        <div class="p-jh" data-href="https://www.linkedin.com/in/raymond-neil-galor/"><div class="p-lg p-flag"><img src="assets/flags/ca.svg" alt=""></div><div><b>Contract Engagements</b><i>Agile Tech Lead/Manager &amp; AI&nbsp;(UI/UX&nbsp;FE)&nbsp;Engineer</i></div><span class="p-when">Jul 2024 – Present</span></div>
+        <div class="p-clients">
+          <div class="p-cl"><div class="p-logo"><img src="assets/hires/freelance.svg" alt=""></div><span>Multiple Clients</span><em>Contract &amp; freelance <span class="p-cc"><img src="assets/flags/ca.svg" alt="">CA</span></em></div>
+        </div>
+      </div>
+      <div class="p-job p-third anim" style="--i:8;--c:#2563eb">
+        <div class="p-jh" data-href="https://rcggs.com/"><div class="p-lg"><img src="assets/hires/rcg_mark.svg" alt=""></div><div><b>RCG Global Services</b><i>Senior Consultant · now Myridius</i></div><span class="p-when">May 2022 – Jul 2024</span></div>
+        <div class="p-clients">
+          <div class="p-cl" data-href="https://jacksoncoker.com/"><div class="p-logo"><img class="p-wide" src="assets/hires/jacksoncoker_wordmark.png" alt=""></div><span>Jackson &amp; Coker</span><em>Zeus · Atlas <span class="p-cc"><img src="assets/flags/us.svg" alt="">US</span></em></div>
+        </div>
+      </div>
+      <div class="p-job anim" style="--i:9;--c:#0891b2">
+        <div class="p-jh" data-href="https://www.bcstechnology.com.au/"><div class="p-lg"><img src="assets/hires/bcs_mark.svg" alt=""></div><div><b>BCS Technology</b><i>Full Stack Developer · Apigee &amp; Angular</i></div><span class="p-when">Apr 2021 – May 2022</span></div>
+        <div class="p-clients">
+          <div class="p-cl" data-href="https://www.cebupacificair.com/"><div class="p-logo"><img class="p-wide" src="assets/hires/cebupacific_wordmark.svg" alt=""></div><span>Cebu Pacific Air</span><em>Airline <span class="p-cc"><img src="assets/flags/ph.svg" alt="">PH</span></em></div>
+          <div class="p-cl" data-href="https://www.elmo.co.jp/"><div class="p-logo"><img src="assets/hires/elmo_mark.png" alt=""></div><span>ELMO</span><em>Classroom tech <span class="p-cc"><img src="assets/flags/jp.svg" alt="">JP</span></em></div>
+        </div>
+      </div>
+      <div class="p-job anim" style="--i:10;--c:#1f70c1">
+        <div class="p-jh" data-href="https://www.ibm.com/"><div class="p-lg"><img src="assets/tech/ibmlogo.svg" alt=""></div><div><b>IBM</b><i>Application Developer · Front End Engineer</i></div><span class="p-when">Mar 2019 – Apr 2021</span></div>
+        <div class="p-clients">
+          <div class="p-cl" data-href="https://onvio.us/"><div class="p-logo"><div class="p-onv"><small>Thomson Reuters®</small><b>Onvio</b></div></div><span>Onvio</span><em>Firm Mgmt <span class="p-cc"><img src="assets/flags/us.svg" alt="">US</span><span class="p-cc"><img src="assets/flags/ca.svg" alt="">CA</span></em></div>
+          <div class="p-cl" data-href="https://tax.thomsonreuters.com/en/products/onvio-firm-management"><div class="p-logo"><img class="p-wide" src="assets/hires/thomsonreuters_wordmark.svg" alt=""></div><span>Thomson Reuters</span><em>Tax &amp; Accounting</em></div>
+        </div>
+      </div>
+      <div class="p-job anim" style="--i:11;--c:#7c3aed">
+        <div class="p-jh" data-href="https://www.linkedin.com/company/astropolis-inc"><div class="p-lg" style="background:#000;border-color:#000"><img src="assets/hires/astropolis_mark.jpg" alt="" style="width:46px;height:46px"></div><div><b>Astropolis</b><i>App Developer · Lead mobile</i></div><span class="p-when">Sep 2018 – Feb 2019</span></div>
+        <div class="p-clients">
+          <div class="p-cl" style="background:#1b1f3b;border-color:#1b1f3b;color:#fff" data-href="https://web.archive.org/web/2024/https://www.metrodeal.com/"><div class="p-logo"><img class="p-wide" src="assets/hires/metrodeal_wordmark.png" alt=""></div><span>MetroDeal</span><em style="color:#c3c9e6">Ionic Angular app <span class="p-cc"><img src="assets/flags/ph.svg" alt="">PH</span></em></div>
+        </div>
+      </div>
+      <div class="p-job anim" style="--i:12;--c:#a100ff">
+        <div class="p-jh" data-href="https://www.accenture.com/"><div class="p-lg"><img src="assets/hires/accenture_mark.svg" alt=""></div><div><b>Accenture</b><i>App Dev Senior Analyst · Senior FE</i></div><span class="p-when">Sep 2017 – Aug 2018</span></div>
+        <div class="p-clients">
+          <div class="p-cl" data-href="https://www.truelocal.com.au/"><div class="p-logo"><img class="p-mid" src="assets/hires/truelocal_wordmark.svg" alt=""></div><span>True Local</span><em><span class="p-cc"><img src="assets/flags/au.svg" alt="">AU</span></em></div>
+          <div class="p-cl" data-href="https://www.yellow.com.au/"><div class="p-logo"><img src="assets/brand/yellow.png" alt=""></div><span>Yellow</span><em>Sensis <span class="p-cc"><img src="assets/flags/au.svg" alt="">AU</span></em></div>
+          <div class="p-cl" data-href="https://www.vodafone.gr/"><div class="p-logo"><img src="assets/hires/vodafone_mark.svg" alt=""></div><span>Vodafone</span><em><span class="p-cc"><img src="assets/flags/gr.svg" alt="">GR</span></em></div>
+        </div>
+      </div>
+      <div class="p-job anim" style="--i:13;--c:#ea580c">
+        <div class="p-jh" data-href="https://crmonline.com.au/"><div class="p-lg"><img src="assets/hires/crmonline_mark.png" alt=""></div><div><b>CRM Online</b><i>Mobile Developer · Lead hybrid mobile</i></div><span class="p-when">Aug 2016 – Sep 2017</span></div>
+        <div class="p-clients">
+          <div class="p-cl" data-href="https://fieldmagic.co/"><div class="p-logo"><img src="assets/hires/fieldmagic_mark.png" alt=""></div><span>Fieldmagic</span><em>Field service &amp; asset app <span class="p-cc"><img src="assets/flags/au.svg" alt="">AU</span></em></div>
+        </div>
+      </div>
+      <div class="p-job anim" style="--i:14;--c:#15803d">
+        <div class="p-jh" data-href="https://www.ctsi-logistics.com/"><div class="p-lg"><img src="assets/hires/ctsi_wordmark.png" alt=""></div><div><b>CTSI Holdings</b><i>Jr. Software Engineer · Hybrid mobile</i></div><span class="p-when">May 2014 – Aug 2016</span></div>
+        <div class="p-clients">
+          <div class="p-cl" data-href="https://www.ctsi-logistics.com/"><div class="p-logo"><img class="p-wide" src="assets/hires/ctsi_wordmark.png" alt=""></div><span>CTSI Logistics</span><em>mPOD · mWMS <span class="p-cc"><img src="assets/flags/ph.svg" alt="">PH</span></em></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ======= column 3: tech + certs ======= -->
+  <div class="p-col">
+    <div class="p-sh anim" style="--i:3"><span class="p-n">03</span><h2>Tech Stack</h2></div>
+    <div class="p-tech">
+      <div class="p-tg anim" style="--i:4"><h4>AI Engineering</h4><div class="p-icons">
+        <div class="p-ti"><img src="assets/tech/g_llm.svg"><span>LLMs</span></div>
+        <div class="p-ti"><img src="assets/tech/g_agent.svg"><span>Agentic workflows</span></div>
+        <div class="p-ti" data-href="https://modelcontextprotocol.io/"><img src="assets/tech/mcp.svg"><span>MCP tool calling</span></div>
+        <div class="p-ti"><img src="assets/tech/g_multi.svg"><span>Multi-agent coding</span></div>
+        <div class="p-ti"><img src="assets/tech/g_guard.svg"><span>Guardrails</span></div>
+        <div class="p-ti" data-href="https://n8n.io/"><img src="assets/tech/n8n.svg"><span>n8n</span></div>
+        <div class="p-ti" data-href="https://developers.google.com/ml-kit"><div class="p-tx" style="background:#1a73e8">ML</div><span>Google ML Kit</span></div>
+      </div></div>
+      <div class="p-tg anim" style="--i:5"><h4>Languages &amp; Back-End</h4><div class="p-icons">
+        <div class="p-ti" data-href="https://www.python.org/"><img src="assets/tech/python.svg"><span>Python</span></div>
+        <div class="p-ti" data-href="https://www.typescriptlang.org/"><img src="assets/tech/typescript.svg"><span>TypeScript</span></div>
+        <div class="p-ti" data-href="https://developer.mozilla.org/en-US/docs/Web/JavaScript"><img src="assets/tech/javascript.svg"><span>JavaScript</span></div>
+        <div class="p-ti"><img src="assets/tech/g_sql.svg"><span>SQL</span></div>
+        <div class="p-ti" data-href="https://fastapi.tiangolo.com/"><img src="assets/tech/fastapi.svg"><span>FastAPI</span></div>
+        <div class="p-ti" data-href="https://docs.pydantic.dev/"><img src="assets/tech/pydantic.svg"><span>Pydantic</span></div>
+        <div class="p-ti" data-href="https://nodejs.org/"><img src="assets/tech/nodejs.svg"><span>Node.js</span></div>
+      </div></div>
+      <div class="p-tg anim" style="--i:6"><h4>Cloud &amp; DevOps</h4><div class="p-icons">
+        <div class="p-ti" data-href="https://cloud.google.com/"><img src="assets/tech/gcp.svg"><span>Google Cloud</span></div>
+        <div class="p-ti" data-href="https://cloud.google.com/run"><img src="assets/tech/cloudrun.svg"><span>Cloud Run</span></div>
+        <div class="p-ti" data-href="https://cloud.google.com/pubsub"><img src="assets/tech/pubsub.svg"><span>Pub/Sub</span></div>
+        <div class="p-ti" data-href="https://cloud.google.com/bigquery"><img src="assets/tech/bigquery.svg"><span>BigQuery</span></div>
+        <div class="p-ti" data-href="https://www.terraform.io/"><img src="assets/tech/terraform.svg"><span>Terraform</span></div>
+        <div class="p-ti" data-href="https://github.com/features/actions"><img src="assets/tech/ghactions.svg"><span>GitHub Actions</span></div>
+        <div class="p-ti"><img src="assets/tech/g_cicd.svg"><span>CI/CD</span></div>
+      </div></div>
+      <div class="p-tg anim" style="--i:7"><h4>Front-End &amp; Mobile</h4><div class="p-icons">
+        <div class="p-ti" data-href="https://react.dev/"><img src="assets/tech/react.svg"><span>React</span></div>
+        <div class="p-ti" data-href="https://angular.dev/"><img src="assets/tech/angular.svg"><span>Angular</span></div>
+        <div class="p-ti" data-href="https://vuejs.org/"><img src="assets/tech/vue.svg"><span>Vue.js</span></div>
+        <div class="p-ti" data-href="https://expo.dev/"><img src="assets/tech/expo.svg"><span>Expo / React Native</span></div>
+        <div class="p-ti" data-href="https://ionicframework.com/"><img src="assets/tech/ionic.svg"><span>Ionic</span></div>
+        <div class="p-ti" data-href="https://dotnet.microsoft.com/apps/maui"><img src="assets/tech/maui.svg"><span>.NET MAUI</span></div>
+        <div class="p-ti" data-href="https://rxjs.dev/"><img src="assets/tech/rxjs.svg"><span>RxJS</span></div>
+      </div></div>
+      <div class="p-tg anim" style="--i:8"><h4>Data &amp; Testing</h4><div class="p-icons">
+        <div class="p-ti" data-href="https://www.postgresql.org/docs/current/ddl-rowsecurity.html"><img src="assets/tech/postgresql.svg"><span>PostgreSQL (RLS)</span></div>
+        <div class="p-ti" data-href="https://www.mongodb.com/"><img src="assets/tech/mongodb.svg"><span>MongoDB</span></div>
+        <div class="p-ti" data-href="https://docs.pytest.org/"><img src="assets/tech/pytest.svg"><span>pytest</span></div>
+        <div class="p-ti" data-href="https://vitest.dev/"><img src="assets/tech/vitest.svg"><span>Vitest</span></div>
+        <div class="p-ti" data-href="https://jestjs.io/"><img src="assets/tech/jest.svg"><span>Jest</span></div>
+        <div class="p-ti" data-href="https://playwright.dev/"><img src="assets/tech/playwright.svg"><span>Playwright</span></div>
+        <div class="p-ti" data-href="https://www.cypress.io/"><img src="assets/tech/cypress.svg"><span>Cypress</span></div>
+      </div></div>
+      <div class="p-tg anim" style="--i:9"><h4>Architecture &amp; Leadership</h4><div class="p-icons">
+        <div class="p-ti"><div class="p-tx" style="background:#7c3aed">CQRS</div><span>CQRS</span></div>
+        <div class="p-ti"><img src="assets/tech/g_event.svg"><span>Event-driven design</span></div>
+        <div class="p-ti" data-href="https://www.openapis.org/"><img src="assets/tech/openapi.svg"><span>OpenAPI</span></div>
+        <div class="p-ti" data-href="https://www.asyncapi.com/"><div class="p-tx" style="background:#0f766e">Async</div><span>AsyncAPI</span></div>
+        <div class="p-ti"><img src="assets/tech/g_docs.svg"><span>ADRs · SDDs</span></div>
+        <div class="p-ti" data-href="https://openid.net/developers/how-connect-works/"><img src="assets/tech/openid.svg"><span>OIDC</span></div>
+        <div class="p-ti"><img src="assets/tech/g_agile.svg"><span>Agile / Scrum</span></div>
+        <div class="p-ti" data-href="https://scaledagileframework.com/"><div class="p-tx" style="background:#0b5cad">SAFe</div><span>SAFe</span></div>
+        <div class="p-ti"><div class="p-tx" style="background:#475569">ITIL</div><span>CAB / ITIL</span></div>
+        <div class="p-ti"><div class="p-tx" style="background:#0e7490">SDLC</div><span>SDLC</span></div>
+        <div class="p-ti"><img src="assets/tech/g_people.svg"><span>Stakeholder management</span></div>
+        <div class="p-ti"><div class="p-tx" style="background:#be185d">HR</div><span>Hiring &amp; coaching</span></div>
+      </div></div>
+    </div>
+
+    <div class="p-sh anim" style="--i:10"><span class="p-n">04</span><h2>Certifications, Awards &amp; Recognition</h2></div>
+    <div class="p-badges">
+      <div class="p-bd anim" data-href="https://www.credly.com/badges/3ba993d6-b402-4d1a-9634-2e27592daeb7" style="--i:11"><div class="p-medal"><img src="assets/hires/pmi_mark.png"></div><b>Practical Application of Generative AI for Project Managers</b><i>PMI</i><span class="p-y">2026</span></div>
+      <div class="p-bd anim" data-href="https://www.credly.com/badges/04f59ad6-aca9-4846-84ff-52d2de4933e0" style="--i:12"><div class="p-medal"><img src="assets/hires/pmi_mark.png"></div><b>Generative AI Overview for Project Managers</b><i>PMI</i><span class="p-y">2025</span></div>
+      <div class="p-bd anim" data-href="https://www.credly.com/badges/f8200f5c-c167-4626-90bc-011ce08e7bb3" style="--i:13"><div class="p-medal"><img src="assets/hires/pmi_mark.png"></div><b>Talking to AI: Prompt Engineering for Project Managers</b><i>PMI</i><span class="p-y">2025</span></div>
+      <div class="p-bd anim" data-href="https://www.credly.com/badges/6c0c3492-eb6f-4ae3-a189-98d1cb67375e" style="--i:14"><div class="p-medal"><img src="assets/hires/pmi_mark.png"></div><b>Intro to Cognitive Project Management in AI (CPMAI)™</b><i>PMI</i><span class="p-y">2025</span></div>
+      <div class="p-bd anim" data-href="https://www.linkedin.com/learning/certificates/3baa4b8b8684334c9b1d149329c77d4c6dc6c6d19174eb8b3779456d0512708b" style="--i:15"><div class="p-medal p-duo"><img src="assets/tech/microsoft.svg"><img src="assets/tech/linkedin.svg"></div><b>Career Essentials in Project Management</b><i>Microsoft &amp; LinkedIn</i><span class="p-y">2025</span></div>
+      <div class="p-bd anim" data-href="https://drive.google.com/file/d/1D2sJkpsMNFJcw1-T1orEZT1CAUocrn7Z" style="--i:16"><div class="p-medal"><img src="assets/hires/sixsigma_mark.png"></div><b>Lean Six Sigma White Belt</b><i>Council for Six Sigma Certification</i><span class="p-y">2025</span></div>
+      <div class="p-bd p-award anim" style="--i:17"><div class="p-bd-main anim" data-href="https://drive.google.com/file/d/1fufVULtkDwVbEkVhXsBpuzKBe5zHIp4e/view?usp=sharing" style="--i:18"><div class="p-medal"><img src="assets/tech/ibmlogo.svg"></div><b>Certificate of Appreciation / Recognition Awardee</b></div><div class="p-qs"><span class="p-q" data-href="https://drive.google.com/file/d/1fufVULtkDwVbEkVhXsBpuzKBe5zHIp4e/view?usp=sharing">Q2</span><span class="p-q" data-href="https://drive.google.com/file/d/1sou1lT1TgAgwO-chciNCvg-8tjNsm7lJ/view?usp=sharing">Q3</span></div><i>IBM · Award</i><span class="p-y">2019</span></div>
+      <div class="p-bd p-award anim" style="--i:19"><div class="p-bd-main anim" data-href="https://drive.google.com/file/d/17EHmbi9LCB57alv9hSXwrqhc2Pi4qYXT/view?usp=sharing" style="--i:20"><div class="p-medal"><img src="assets/tech/ibmlogo.svg"></div><b>IBM Manager's Choice Awards</b></div><div class="p-qs"><span class="p-q" data-href="https://drive.google.com/file/d/17EHmbi9LCB57alv9hSXwrqhc2Pi4qYXT/view?usp=sharing">Q2</span><span class="p-q" data-href="https://drive.google.com/file/d/1MtwM9YHZH-uTtuVth564sZPEp-bspLig/view?usp=sharing">Q3</span></div><i>IBM · Award</i><span class="p-y">2019</span></div>
+      <div class="p-bd anim" data-href="https://www.credly.com/badges/012cadea-f4c7-4026-9a1b-1c1ca4eebb66" style="--i:21"><div class="p-medal"><img src="assets/tech/ibmlogo.svg"></div><b>Enterprise Design Thinking Practitioner</b><i>IBM</i><span class="p-y">2019</span></div>
+      <div class="p-bd anim" data-href="https://www.credly.com/badges/d02d004c-2a5c-46b3-b1a8-2f66f3ed1699" style="--i:22"><div class="p-medal"><img src="assets/tech/ibmlogo.svg"></div><b>IBM Agile Explorer</b><i>IBM</i><span class="p-y">2019</span></div>
+    </div>
+  </div>
+</div>
+</div>
+      </div>
+      <a class="ov-cue" href="#experience">Scroll for full details <span class="arrow" aria-hidden="true">↓</span></a>
+    </div>
+    <script>
+      // Size the poster before first paint so it never jumps.
+      (function () {
+        var q = '(min-width: 1100px) and (min-aspect-ratio: 5/4)';
+        function fit() {
+          var vw = document.documentElement.clientWidth, vh = window.innerHeight;
+          var s = Math.min(vw / 2400, (vh - 44) / 1350);
+          document.documentElement.style.setProperty('--s', s.toFixed(5));
+        }
+        fit();
+        window.__fitPoster = fit;
+        window.__posterQuery = q;
+      })();
+    </script>
+
+    <div class="m-over">
+      <div class="m-hero">
+        <div class="wrap m-hero-in">
+          <div class="m-id">
+            <div class="ring-spin anim" style="--i:0" aria-hidden="true"><span>RNG</span></div>
+            <div class="m-name">
+              <h1 class="anim" style="--i:2"><span>Raymond Neil Galor</span></h1>
+            </div>
+          </div>
+          <p class="m-role anim" style="--i:3">Software Engineering Manager &amp; AI Engineer</p>
+          <p class="m-lede anim" style="--i:4">Software Engineering Manager and AI Engineer building enterprise web, mobile and cloud software. Leads and manages Agile/Scrum teams, sets SDLC and CI/CD standards and delivers applications on Google Cloud (GCP). Applied AI work spans an enterprise AI platform with MCP tool servers, LLM invoice automation and guardrailed multi-agent Claude Code builds in Python and TypeScript.</p>
+          <div class="m-chips anim" style="--i:5">
+            <a class="m-chip" href="https://www.linkedin.com/in/raymond-neil-galor/" target="_blank" rel="noopener"><img src="assets/tech/linkedin.svg" alt="">LinkedIn</a>
+            <span class="m-chip"><img class="fl" src="assets/flags/ca.svg" alt="">Ontario, Canada</span>
+          </div>
+          <div class="m-stats anim" style="--i:6">
+            <div class="m-stat"><b>10+</b><span>years in enterprise software, since 2014</span></div>
+            <div class="m-stat"><b>10+</b><span>companies, from start-ups to IBM and Accenture</span></div>
+            <div class="m-stat"><b>12+</b><span>brands and products delivered</span></div>
+            <div class="m-stat"><b>7+</b><div class="m-flags" role="img" aria-label="Philippines, Australia, New Zealand, United States, Canada, Greece, Japan"><img src="assets/flags/ph.svg" alt=""><img src="assets/flags/au.svg" alt=""><img src="assets/flags/us.svg" alt=""><img src="assets/flags/ca.svg" alt=""><img src="assets/flags/gr.svg" alt=""><img src="assets/flags/jp.svg" alt=""><img src="assets/flags/nz.svg" alt=""></div><span>markets served</span></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="wrap m-body">
+        <div class="m-sec">
+          <div class="m-h reveal"><h2>AI-powered engineering</h2><span>Daily toolkit</span></div>
+          <div class="m-ai">
+            <a class="m-aic reveal" href="https://claude.com/product/claude-code" target="_blank" rel="noopener" style="--c:#D97757;--t:#fbf0eb"><span class="pl"><img src="assets/tech/claude.svg" alt=""></span><b>Claude Code</b><small>Anthropic</small></a>
+            <a class="m-aic reveal" href="https://openai.com/codex/" target="_blank" rel="noopener" style="--c:#111827;--t:#f1f2f4"><span class="pl"><img src="assets/tech/openai.svg" alt=""></span><b>Codex</b><small>OpenAI</small></a>
+            <a class="m-aic reveal" href="https://gemini.google.com/" target="_blank" rel="noopener" style="--c:linear-gradient(90deg,#4285F4,#9B72CB,#D96570);--t:#eef2fd"><span class="pl"><img src="assets/tech/gemini.svg" alt=""></span><b>Gemini</b><small>Google</small></a>
+            <a class="m-aic reveal" href="https://github.com/features/copilot" target="_blank" rel="noopener" style="--c:linear-gradient(90deg,#0078D4,#8661C5);--t:#eef1fb"><span class="pl"><img src="assets/tech/copilot.svg" alt=""></span><b>Copilot</b><small>Microsoft · GitHub</small></a>
+          </div>
+        </div>
+
+        <div class="m-sec">
+          <div class="m-h reveal"><h2>Companies &amp; brands</h2><span>2014 – present</span></div>
+          <ul class="m-brands">
+            <li class="reveal"><a class="m-brand" href="https://frontiertowersphilippines.com/" target="_blank" rel="noopener"><span class="lg"><img src="assets/hires/ftap_mark.png" alt=""></span><b>FTAP</b><small>2026 – now</small></a></li>
+            <li class="reveal"><a class="m-brand" href="https://myridius.com/" target="_blank" rel="noopener"><span class="lg"><img src="assets/hires/rcg_mark.svg" alt=""></span><b>RCG</b><small>now Myridius</small></a></li>
+            <li class="reveal"><a class="m-brand" href="https://jacksoncoker.com/" target="_blank" rel="noopener"><span class="lg"><img src="assets/hires/jacksoncoker_mark.png" alt=""></span><b>Jackson + Coker</b><small>US</small></a></li>
+            <li class="reveal"><a class="m-brand" href="https://bcstechnology.com.au/" target="_blank" rel="noopener"><span class="lg"><img src="assets/hires/bcs_mark.svg" alt=""></span><b>BCS Technology</b><small>2021 – 2022</small></a></li>
+            <li class="reveal"><a class="m-brand" href="https://www.cebupacificair.com/" target="_blank" rel="noopener"><span class="lg"><img src="assets/hires/cebupacific_mark.svg" alt=""></span><b>Cebu Pacific</b><small>PH</small></a></li>
+            <li class="reveal"><a class="m-brand" href="https://www.elmo.co.jp/" target="_blank" rel="noopener"><span class="lg"><img src="assets/hires/elmo_mark.png" alt=""></span><b>ELMO</b><small>JP</small></a></li>
+            <li class="reveal"><a class="m-brand" href="https://www.ibm.com/" target="_blank" rel="noopener"><span class="lg"><img src="assets/tech/ibmlogo.svg" alt=""></span><b>IBM</b><small>2019 – 2021</small></a></li>
+            <li class="reveal"><a class="m-brand" href="https://onvio.us/" target="_blank" rel="noopener"><span class="lg onv" aria-hidden="true"><small>Thomson Reuters®</small><b>Onvio</b></span><b>Onvio</b><small>US · CA</small></a></li>
+            <li class="reveal"><a class="m-brand" href="https://tax.thomsonreuters.com/en/products/onvio-firm-management" target="_blank" rel="noopener"><span class="lg"><img src="assets/hires/thomsonreuters_mark.svg" alt=""></span><b>Thomson Reuters</b><small>Tax</small></a></li>
+            <li class="reveal"><a class="m-brand" href="https://www.linkedin.com/company/astropolis-inc" target="_blank" rel="noopener"><span class="lg blk"><img src="assets/hires/astropolis_mark.jpg" alt=""></span><b>Astropolis</b><small>2018 – 2019</small></a></li>
+            <li class="reveal"><a class="m-brand" href="https://web.archive.org/web/2024/https://www.metrodeal.com/" target="_blank" rel="noopener"><span class="lg dark"><img src="assets/hires/metrodeal_wordmark.png" alt=""></span><b>MetroDeal</b><small>PH</small></a></li>
+            <li class="reveal"><a class="m-brand" href="https://www.accenture.com/" target="_blank" rel="noopener"><span class="lg"><img src="assets/hires/accenture_mark.svg" alt=""></span><b>Accenture</b><small>2017 – 2018</small></a></li>
+            <li class="reveal"><a class="m-brand" href="https://www.truelocal.com.au/" target="_blank" rel="noopener"><span class="lg"><img src="assets/hires/truelocal_wordmark.svg" alt=""></span><b>True Local</b><small>AU</small></a></li>
+            <li class="reveal"><a class="m-brand" href="https://www.yellow.com.au/" target="_blank" rel="noopener"><span class="lg"><img src="assets/brand/yellow.png" alt=""></span><b>Yellow</b><small>AU</small></a></li>
+            <li class="reveal"><a class="m-brand" href="https://www.vodafone.gr/" target="_blank" rel="noopener"><span class="lg"><img src="assets/hires/vodafone_mark.svg" alt=""></span><b>Vodafone</b><small>GR</small></a></li>
+            <li class="reveal"><a class="m-brand" href="https://crmonline.com.au/" target="_blank" rel="noopener"><span class="lg"><img src="assets/hires/crmonline_mark.png" alt=""></span><b>CRM Online</b><small>2016 – 2017</small></a></li>
+            <li class="reveal"><a class="m-brand" href="https://fieldmagic.co/" target="_blank" rel="noopener"><span class="lg"><img src="assets/hires/fieldmagic_mark.png" alt=""></span><b>Fieldmagic</b><small>AU</small></a></li>
+            <li class="reveal"><a class="m-brand" href="https://www.ctsi-logistics.com/" target="_blank" rel="noopener"><span class="lg"><img src="assets/hires/ctsi_wordmark.png" alt=""></span><b>CTSI</b><small>2014 – 2016</small></a></li>
+          </ul>
+        </div>
+
+        <div class="m-sec">
+          <div class="m-h reveal"><h2>Tech Stack</h2><span>AI to delivery</span></div>
+          <div class="marquee reveal" aria-label="Technologies">
+            <div class="mq-track"><span class="mq-item"><span class="ic"><img src="assets/tech/g_llm.svg" alt=""></span>LLMs</span><span class="mq-item"><span class="ic"><img src="assets/tech/g_agent.svg" alt=""></span>Agentic workflows</span><span class="mq-item"><span class="ic"><img src="assets/tech/mcp.svg" alt=""></span>MCP tool calling</span><span class="mq-item"><span class="ic"><img src="assets/tech/g_multi.svg" alt=""></span>Multi-agent coding</span><span class="mq-item"><span class="ic"><img src="assets/tech/g_guard.svg" alt=""></span>Guardrails</span><span class="mq-item"><span class="ic"><img src="assets/tech/n8n.svg" alt=""></span>n8n</span><span class="mq-item"><span class="ic"><span class="tx" style="background:#1a73e8">ML</span></span>Google ML Kit</span><span class="mq-item"><span class="ic"><img src="assets/tech/python.svg" alt=""></span>Python</span><span class="mq-item"><span class="ic"><img src="assets/tech/typescript.svg" alt=""></span>TypeScript</span><span class="mq-item"><span class="ic"><img src="assets/tech/javascript.svg" alt=""></span>JavaScript</span><span class="mq-item"><span class="ic"><img src="assets/tech/g_sql.svg" alt=""></span>SQL</span><span class="mq-item"><span class="ic"><img src="assets/tech/fastapi.svg" alt=""></span>FastAPI</span><span class="mq-item"><span class="ic"><img src="assets/tech/pydantic.svg" alt=""></span>Pydantic</span><span class="mq-item"><span class="ic"><img src="assets/tech/nodejs.svg" alt=""></span>Node.js</span><span class="mq-item"><span class="ic"><img src="assets/tech/gcp.svg" alt=""></span>Google Cloud</span><span class="mq-item"><span class="ic"><img src="assets/tech/cloudrun.svg" alt=""></span>Cloud Run</span><span class="mq-item"><span class="ic"><img src="assets/tech/pubsub.svg" alt=""></span>Pub/Sub</span><span class="mq-item"><span class="ic"><img src="assets/tech/bigquery.svg" alt=""></span>BigQuery</span><span class="mq-item"><span class="ic"><img src="assets/tech/terraform.svg" alt=""></span>Terraform</span><span class="mq-item"><span class="ic"><img src="assets/tech/ghactions.svg" alt=""></span>GitHub Actions</span><span class="mq-item"><span class="ic"><img src="assets/tech/g_cicd.svg" alt=""></span>CI/CD</span><span class="mq-item mq-dup" aria-hidden="true"><span class="ic"><img src="assets/tech/g_llm.svg" alt=""></span>LLMs</span><span class="mq-item mq-dup" aria-hidden="true"><span class="ic"><img src="assets/tech/g_agent.svg" alt=""></span>Agentic workflows</span><span class="mq-item mq-dup" aria-hidden="true"><span class="ic"><img src="assets/tech/mcp.svg" alt=""></span>MCP tool calling</span><span class="mq-item mq-dup" aria-hidden="true"><span class="ic"><img src="assets/tech/g_multi.svg" alt=""></span>Multi-agent coding</span><span class="mq-item mq-dup" aria-hidden="true"><span class="ic"><img src="assets/tech/g_guard.svg" alt=""></span>Guardrails</span><span class="mq-item mq-dup" aria-hidden="true"><span class="ic"><img src="assets/tech/n8n.svg" alt=""></span>n8n</span><span class="mq-item mq-dup" aria-hidden="true"><span class="ic"><span class="tx" style="background:#1a73e8">ML</span></span>Google ML Kit</span><span class="mq-item mq-dup" aria-hidden="true"><span class="ic"><img src="assets/tech/python.svg" alt=""></span>Python</span><span class="mq-item mq-dup" aria-hidden="true"><span class="ic"><img src="assets/tech/typescript.svg" alt=""></span>TypeScript</span><span class="mq-item mq-dup" aria-hidden="true"><span class="ic"><img src="assets/tech/javascript.svg" alt=""></span>JavaScript</span><span class="mq-item mq-dup" aria-hidden="true"><span class="ic"><img src="assets/tech/g_sql.svg" alt=""></span>SQL</span><span class="mq-item mq-dup" aria-hidden="true"><span class="ic"><img src="assets/tech/fastapi.svg" alt=""></span>FastAPI</span><span class="mq-item mq-dup" aria-hidden="true"><span class="ic"><img src="assets/tech/pydantic.svg" alt=""></span>Pydantic</span><span class="mq-item mq-dup" aria-hidden="true"><span class="ic"><img src="assets/tech/nodejs.svg" alt=""></span>Node.js</span><span class="mq-item mq-dup" aria-hidden="true"><span class="ic"><img src="assets/tech/gcp.svg" alt=""></span>Google Cloud</span><span class="mq-item mq-dup" aria-hidden="true"><span class="ic"><img src="assets/tech/cloudrun.svg" alt=""></span>Cloud Run</span><span class="mq-item mq-dup" aria-hidden="true"><span class="ic"><img src="assets/tech/pubsub.svg" alt=""></span>Pub/Sub</span><span class="mq-item mq-dup" aria-hidden="true"><span class="ic"><img src="assets/tech/bigquery.svg" alt=""></span>BigQuery</span><span class="mq-item mq-dup" aria-hidden="true"><span class="ic"><img src="assets/tech/terraform.svg" alt=""></span>Terraform</span><span class="mq-item mq-dup" aria-hidden="true"><span class="ic"><img src="assets/tech/ghactions.svg" alt=""></span>GitHub Actions</span><span class="mq-item mq-dup" aria-hidden="true"><span class="ic"><img src="assets/tech/g_cicd.svg" alt=""></span>CI/CD</span></div>
+            <div class="mq-track rev"><span class="mq-item"><span class="ic"><img src="assets/tech/react.svg" alt=""></span>React</span><span class="mq-item"><span class="ic"><img src="assets/tech/angular.svg" alt=""></span>Angular</span><span class="mq-item"><span class="ic"><img src="assets/tech/vue.svg" alt=""></span>Vue.js</span><span class="mq-item"><span class="ic"><img src="assets/tech/expo.svg" alt=""></span>Expo / React Native</span><span class="mq-item"><span class="ic"><img src="assets/tech/ionic.svg" alt=""></span>Ionic</span><span class="mq-item"><span class="ic"><img src="assets/tech/maui.svg" alt=""></span>.NET MAUI</span><span class="mq-item"><span class="ic"><img src="assets/tech/rxjs.svg" alt=""></span>RxJS</span><span class="mq-item"><span class="ic"><img src="assets/tech/postgresql.svg" alt=""></span>PostgreSQL (RLS)</span><span class="mq-item"><span class="ic"><img src="assets/tech/mongodb.svg" alt=""></span>MongoDB</span><span class="mq-item"><span class="ic"><img src="assets/tech/pytest.svg" alt=""></span>pytest</span><span class="mq-item"><span class="ic"><img src="assets/tech/vitest.svg" alt=""></span>Vitest</span><span class="mq-item"><span class="ic"><img src="assets/tech/jest.svg" alt=""></span>Jest</span><span class="mq-item"><span class="ic"><img src="assets/tech/playwright.svg" alt=""></span>Playwright</span><span class="mq-item"><span class="ic"><img src="assets/tech/cypress.svg" alt=""></span>Cypress</span><span class="mq-item"><span class="ic"><span class="tx" style="background:#7c3aed">CQRS</span></span>CQRS</span><span class="mq-item"><span class="ic"><img src="assets/tech/g_event.svg" alt=""></span>Event-driven design</span><span class="mq-item"><span class="ic"><img src="assets/tech/openapi.svg" alt=""></span>OpenAPI</span><span class="mq-item"><span class="ic"><span class="tx" style="background:#0f766e">Async</span></span>AsyncAPI</span><span class="mq-item"><span class="ic"><img src="assets/tech/g_docs.svg" alt=""></span>ADRs · SDDs</span><span class="mq-item"><span class="ic"><img src="assets/tech/openid.svg" alt=""></span>OIDC</span><span class="mq-item"><span class="ic"><img src="assets/tech/g_agile.svg" alt=""></span>Agile / Scrum</span><span class="mq-item"><span class="ic"><span class="tx" style="background:#0b5cad">SAFe</span></span>SAFe</span><span class="mq-item"><span class="ic"><span class="tx" style="background:#475569">ITIL</span></span>CAB / ITIL</span><span class="mq-item"><span class="ic"><span class="tx" style="background:#0e7490">SDLC</span></span>SDLC</span><span class="mq-item"><span class="ic"><img src="assets/tech/g_people.svg" alt=""></span>Stakeholder management</span><span class="mq-item"><span class="ic"><span class="tx" style="background:#be185d">HR</span></span>Hiring &amp; coaching</span><span class="mq-item mq-dup" aria-hidden="true"><span class="ic"><img src="assets/tech/react.svg" alt=""></span>React</span><span class="mq-item mq-dup" aria-hidden="true"><span class="ic"><img src="assets/tech/angular.svg" alt=""></span>Angular</span><span class="mq-item mq-dup" aria-hidden="true"><span class="ic"><img src="assets/tech/vue.svg" alt=""></span>Vue.js</span><span class="mq-item mq-dup" aria-hidden="true"><span class="ic"><img src="assets/tech/expo.svg" alt=""></span>Expo / React Native</span><span class="mq-item mq-dup" aria-hidden="true"><span class="ic"><img src="assets/tech/ionic.svg" alt=""></span>Ionic</span><span class="mq-item mq-dup" aria-hidden="true"><span class="ic"><img src="assets/tech/maui.svg" alt=""></span>.NET MAUI</span><span class="mq-item mq-dup" aria-hidden="true"><span class="ic"><img src="assets/tech/rxjs.svg" alt=""></span>RxJS</span><span class="mq-item mq-dup" aria-hidden="true"><span class="ic"><img src="assets/tech/postgresql.svg" alt=""></span>PostgreSQL (RLS)</span><span class="mq-item mq-dup" aria-hidden="true"><span class="ic"><img src="assets/tech/mongodb.svg" alt=""></span>MongoDB</span><span class="mq-item mq-dup" aria-hidden="true"><span class="ic"><img src="assets/tech/pytest.svg" alt=""></span>pytest</span><span class="mq-item mq-dup" aria-hidden="true"><span class="ic"><img src="assets/tech/vitest.svg" alt=""></span>Vitest</span><span class="mq-item mq-dup" aria-hidden="true"><span class="ic"><img src="assets/tech/jest.svg" alt=""></span>Jest</span><span class="mq-item mq-dup" aria-hidden="true"><span class="ic"><img src="assets/tech/playwright.svg" alt=""></span>Playwright</span><span class="mq-item mq-dup" aria-hidden="true"><span class="ic"><img src="assets/tech/cypress.svg" alt=""></span>Cypress</span><span class="mq-item mq-dup" aria-hidden="true"><span class="ic"><span class="tx" style="background:#7c3aed">CQRS</span></span>CQRS</span><span class="mq-item mq-dup" aria-hidden="true"><span class="ic"><img src="assets/tech/g_event.svg" alt=""></span>Event-driven design</span><span class="mq-item mq-dup" aria-hidden="true"><span class="ic"><img src="assets/tech/openapi.svg" alt=""></span>OpenAPI</span><span class="mq-item mq-dup" aria-hidden="true"><span class="ic"><span class="tx" style="background:#0f766e">Async</span></span>AsyncAPI</span><span class="mq-item mq-dup" aria-hidden="true"><span class="ic"><img src="assets/tech/g_docs.svg" alt=""></span>ADRs · SDDs</span><span class="mq-item mq-dup" aria-hidden="true"><span class="ic"><img src="assets/tech/openid.svg" alt=""></span>OIDC</span><span class="mq-item mq-dup" aria-hidden="true"><span class="ic"><img src="assets/tech/g_agile.svg" alt=""></span>Agile / Scrum</span><span class="mq-item mq-dup" aria-hidden="true"><span class="ic"><span class="tx" style="background:#0b5cad">SAFe</span></span>SAFe</span><span class="mq-item mq-dup" aria-hidden="true"><span class="ic"><span class="tx" style="background:#475569">ITIL</span></span>CAB / ITIL</span><span class="mq-item mq-dup" aria-hidden="true"><span class="ic"><span class="tx" style="background:#0e7490">SDLC</span></span>SDLC</span><span class="mq-item mq-dup" aria-hidden="true"><span class="ic"><img src="assets/tech/g_people.svg" alt=""></span>Stakeholder management</span><span class="mq-item mq-dup" aria-hidden="true"><span class="ic"><span class="tx" style="background:#be185d">HR</span></span>Hiring &amp; coaching</span></div>
+          </div>
+        </div>
+
+        <div class="m-sec">
+          <div class="m-h reveal"><h2>Credentials</h2><span>Swipe</span></div>
+          <ul class="m-creds reveal">
+            <li><a class="cred" href="https://www.credly.com/badges/3ba993d6-b402-4d1a-9634-2e27592daeb7" target="_blank" rel="noopener"><span class="yr">2026</span><span class="medal"><img src="assets/hires/pmi_mark.png" alt=""></span><b>Practical Application of Generative AI for Project Managers</b><i>PMI</i></a></li>
+            <li><a class="cred" href="https://www.credly.com/badges/04f59ad6-aca9-4846-84ff-52d2de4933e0" target="_blank" rel="noopener"><span class="yr">2025</span><span class="medal"><img src="assets/hires/pmi_mark.png" alt=""></span><b>Generative AI Overview for Project Managers</b><i>PMI</i></a></li>
+            <li><a class="cred" href="https://www.credly.com/badges/f8200f5c-c167-4626-90bc-011ce08e7bb3" target="_blank" rel="noopener"><span class="yr">2025</span><span class="medal"><img src="assets/hires/pmi_mark.png" alt=""></span><b>Talking to AI: Prompt Engineering for Project Managers</b><i>PMI</i></a></li>
+            <li><a class="cred" href="https://www.credly.com/badges/6c0c3492-eb6f-4ae3-a189-98d1cb67375e" target="_blank" rel="noopener"><span class="yr">2025</span><span class="medal"><img src="assets/hires/pmi_mark.png" alt=""></span><b>Introduction to Cognitive Project Management in AI (CPMAI)™</b><i>PMI</i></a></li>
+            <li><a class="cred" href="https://www.linkedin.com/learning/certificates/3baa4b8b8684334c9b1d149329c77d4c6dc6c6d19174eb8b3779456d0512708b" target="_blank" rel="noopener"><span class="yr">2025</span><span class="medal duo"><img src="assets/tech/microsoft.svg" alt=""><img src="assets/tech/linkedin.svg" alt=""></span><b>Career Essentials in Project Management</b><i>Microsoft &amp; LinkedIn</i></a></li>
+            <li><a class="cred" href="https://drive.google.com/file/d/1D2sJkpsMNFJcw1-T1orEZT1CAUocrn7Z" target="_blank" rel="noopener"><span class="yr">2025</span><span class="medal"><img src="assets/hires/sixsigma_mark.png" alt=""></span><b>Lean Six Sigma White Belt</b><i>Council for Six Sigma Certification</i></a></li>
+            <li><div class="cred award"><span class="yr">2019</span><a class="cred-main" href="https://drive.google.com/file/d/1fufVULtkDwVbEkVhXsBpuzKBe5zHIp4e/view?usp=sharing" target="_blank" rel="noopener"><span class="medal"><img src="assets/tech/ibmlogo.svg" alt=""></span><span class="kind">Award · Q2 &amp; Q3</span><b>Certificate of Appreciation / Recognition</b></a><span class="qs"><a class="q" href="https://drive.google.com/file/d/1fufVULtkDwVbEkVhXsBpuzKBe5zHIp4e/view?usp=sharing" target="_blank" rel="noopener" aria-label="Certificate of Appreciation / Recognition, Q2 certificate">Q2</a><a class="q" href="https://drive.google.com/file/d/1sou1lT1TgAgwO-chciNCvg-8tjNsm7lJ/view?usp=sharing" target="_blank" rel="noopener" aria-label="Certificate of Appreciation / Recognition, Q3 certificate">Q3</a></span><i>IBM</i></div></li>
+            <li><div class="cred award"><span class="yr">2019</span><a class="cred-main" href="https://drive.google.com/file/d/17EHmbi9LCB57alv9hSXwrqhc2Pi4qYXT/view?usp=sharing" target="_blank" rel="noopener"><span class="medal"><img src="assets/tech/ibmlogo.svg" alt=""></span><span class="kind">Award · Q2 &amp; Q3</span><b>IBM Manager's Choice Awards</b></a><span class="qs"><a class="q" href="https://drive.google.com/file/d/17EHmbi9LCB57alv9hSXwrqhc2Pi4qYXT/view?usp=sharing" target="_blank" rel="noopener" aria-label="IBM Manager's Choice Awards, Q2 certificate">Q2</a><a class="q" href="https://drive.google.com/file/d/1MtwM9YHZH-uTtuVth564sZPEp-bspLig/view?usp=sharing" target="_blank" rel="noopener" aria-label="IBM Manager's Choice Awards, Q3 certificate">Q3</a></span><i>IBM</i></div></li>
+            <li><a class="cred" href="https://www.credly.com/badges/012cadea-f4c7-4026-9a1b-1c1ca4eebb66" target="_blank" rel="noopener"><span class="yr">2019</span><span class="medal"><img src="assets/tech/ibmlogo.svg" alt=""></span><b>Enterprise Design Thinking Practitioner</b><i>IBM</i></a></li>
+            <li><a class="cred" href="https://www.credly.com/badges/d02d004c-2a5c-46b3-b1a8-2f66f3ed1699" target="_blank" rel="noopener"><span class="yr">2019</span><span class="medal"><img src="assets/tech/ibmlogo.svg" alt=""></span><b>IBM Agile Explorer</b><i>IBM</i></a></li>
+          </ul>
+        </div>
+
+        <a class="m-cue reveal" href="#experience">Full details <span class="arrow" aria-hidden="true">↓</span></a>
+      </div>
+    </div>
+
+  </section>
+
+  <div class="details">
+  <!-- ===== Experience ===== -->
+  <section class="band" id="experience" aria-labelledby="exp-h">
+    <div class="wrap">
+      <div class="sec-head reveal">
+        <span class="eyebrow">Experience · 2014 to present</span>
+        <h2 id="exp-h">Companies and brands I've built for</h2>
+        <p>10+ companies and 12+ brands across 7+ markets, from logistics and field service to airlines, tax software and telecoms.</p>
+      </div>
+
+      <div class="timeline reveal" aria-hidden="true">
+        <div class="tl-scroll">
+          <div class="tl-inner">
+            <div class="track" id="track"></div>
+            <div class="ticks" id="ticks"></div>
+          </div>
+        </div>
+      </div>
+
+      <ol class="roles">
+        <li class="role-card reveal" style="--c:#c2410c" id="ftap">
+          <div class="when-col"><span class="when">May 2026 – Present</span><span class="now">Now</span></div>
+          <div class="rc-head">
+            <span class="plate"><img src="assets/hires/ftap_mark.png" alt=""></span>
+            <div class="rc-title">
+              <span class="when">May 2026 – Present<span class="now">Now</span></span>
+              <h3><a href="https://frontiertowersphilippines.com/" target="_blank" rel="noopener">Frontier Tower Associates Philippines</a></h3>
+              <span class="r">Software / Solutions Engineering Manager · FTAP</span>
+            </div>
+          </div>
+          <div class="rc-body"><ul>
+            <li>Lead and manage application squads; interview, onboard and coach engineers in AI-assisted coding.</li>
+            <li>Define SDLC standards, code reviews and release gates for ERP and Google Cloud projects.</li>
+            <li>Run an enterprise AI platform with MCP tool servers and direct LLM invoice automation.</li>
+            <li>Orchestrate multi-agent Claude Code builds with guardrails and shape the CI/CD strategy.</li>
+          </ul></div>
+          <div class="clients">
+            <a class="client" href="https://frontiertowersphilippines.com/" target="_blank" rel="noopener"><span class="logo"><img src="assets/hires/ftap_wordmark.webp" alt=""></span><span class="txt"><b>FTAP</b><span>Telecom towers <span class="cc"><img src="assets/flags/ph.svg" alt="">PH</span></span></span></a>
+          </div>
+        </li>
+
+        <li class="role-card reveal" style="--c:#0f766e">
+          <div class="when-col"><span class="when">Jul 2024 – Present</span><span class="now">Now</span></div>
+          <div class="rc-head">
+            <span class="plate flag"><img src="assets/flags/ca.svg" alt=""></span>
+            <div class="rc-title">
+              <span class="when">Jul 2024 – Present<span class="now">Now</span></span>
+              <h3>Contract Engagements</h3>
+              <span class="r">Agile Tech Lead/Manager &amp; AI&nbsp;(UI/UX&nbsp;FE)&nbsp;Engineer · multiple clients · based in Canada</span>
+            </div>
+          </div>
+          <div class="rc-body"><ul>
+            <li>Lead solution architecture and delivery of enterprise web, mobile and cloud platforms (SAFe).</li>
+            <li>Build AI-assisted applications using Claude Code, Codex and Copilot, accelerating delivery.</li>
+            <li>Translate business requirements and user stories into solution designs, ERDs and roadmaps.</li>
+            <li>Govern CI/CD, code quality, testing and documentation; support QAT/UAT and production.</li>
+          </ul></div>
+          <div class="clients">
+            <div class="client"><span class="logo"><img src="assets/hires/freelance.svg" alt=""></span><span class="txt"><b>Multiple clients</b><span>Contract &amp; freelance <span class="cc"><img src="assets/flags/ca.svg" alt="">CA</span></span></span></div>
+          </div>
+        </li>
+
+        <li class="role-card reveal" style="--c:#2563eb">
+          <div class="when-col"><span class="when">May 2022 – Jul 2024</span></div>
+          <div class="rc-head">
+            <span class="plate"><img src="assets/hires/rcg_mark.svg" alt=""></span>
+            <div class="rc-title">
+              <span class="when">May 2022 – Jul 2024</span>
+              <h3><a href="https://myridius.com/" target="_blank" rel="noopener">RCG Global Services</a></h3>
+              <span class="r">Senior Consultant · now Myridius</span>
+            </div>
+          </div>
+          <div class="rc-body"><ul>
+            <li>Enhanced Jackson + Coker's website in Angular, improving its interface and experience.</li>
+            <li>UI Senior Developer delivering a scalable platform in an Agile framework.</li>
+            <li>Designed responsive layouts for the Zeus and Atlas platforms.</li>
+          </ul></div>
+          <div class="clients">
+            <a class="client" href="https://jacksoncoker.com/" target="_blank" rel="noopener"><span class="logo"><img src="assets/hires/jacksoncoker_mark.png" alt=""></span><span class="txt"><b>Jackson + Coker</b><span>Zeus · Atlas <span class="cc"><img src="assets/flags/us.svg" alt="">US</span></span></span></a>
+          </div>
+        </li>
+
+        <li class="role-card reveal" style="--c:#0891b2">
+          <div class="when-col"><span class="when">Apr 2021 – May 2022</span></div>
+          <div class="rc-head">
+            <span class="plate"><img src="assets/hires/bcs_mark.svg" alt=""></span>
+            <div class="rc-title">
+              <span class="when">Apr 2021 – May 2022</span>
+              <h3><a href="https://bcstechnology.com.au/" target="_blank" rel="noopener">BCS Technology International</a></h3>
+              <span class="r">Full Stack Developer</span>
+            </div>
+          </div>
+          <div class="rc-body"><ul>
+            <li>Developed Cebu Pacific Air and ELMO applications with Apigee and Angular.</li>
+            <li>Senior Full Stack Developer across back-end and front-end delivery.</li>
+            <li>Improved Account Management and Classroom Management performance.</li>
+          </ul></div>
+          <div class="clients">
+            <a class="client" href="https://www.cebupacificair.com/" target="_blank" rel="noopener"><span class="logo"><img src="assets/hires/cebupacific_mark.svg" alt=""></span><span class="txt"><b>Cebu Pacific Air</b><span>Airline <span class="cc"><img src="assets/flags/ph.svg" alt="">PH</span></span></span></a>
+            <a class="client" href="https://www.elmo.co.jp/" target="_blank" rel="noopener"><span class="logo"><img src="assets/hires/elmo_mark.png" alt=""></span><span class="txt"><b>ELMO</b><span>Classroom tech <span class="cc"><img src="assets/flags/jp.svg" alt="">JP</span></span></span></a>
+          </div>
+        </li>
+
+        <li class="role-card reveal" style="--c:#1f70c1">
+          <div class="when-col"><span class="when">Mar 2019 – Apr 2021</span></div>
+          <div class="rc-head">
+            <span class="plate"><img src="assets/tech/ibmlogo.svg" alt=""></span>
+            <div class="rc-title">
+              <span class="when">Mar 2019 – Apr 2021</span>
+              <h3><a href="https://www.ibm.com/" target="_blank" rel="noopener">IBM</a></h3>
+              <span class="r">Application Developer · Front End Engineer</span>
+            </div>
+          </div>
+          <div class="rc-body"><ul>
+            <li>Led Onvio (Thomson Reuters) development in Angular, improving experience and usability.</li>
+            <li>Lead Front-End Developer driving innovation initiatives and running dev trainings.</li>
+            <li>Optimized Onvio Firm Management for US and Canada tax and accounting.</li>
+          </ul></div>
+          <div class="clients">
+            <a class="client" href="https://onvio.us/" target="_blank" rel="noopener"><span class="logo onv" aria-hidden="true"><small>Thomson Reuters®</small><b>Onvio</b></span><span class="txt"><b>Onvio</b><span>Firm Management <span class="cc"><img src="assets/flags/us.svg" alt="">US</span><span class="cc"><img src="assets/flags/ca.svg" alt="">CA</span></span></span></a>
+            <a class="client" href="https://tax.thomsonreuters.com/en/products/onvio-firm-management" target="_blank" rel="noopener"><span class="logo"><img src="assets/hires/thomsonreuters_mark.svg" alt=""></span><span class="txt"><b>Thomson Reuters</b><span>Tax &amp; Accounting</span></span></a>
+          </div>
+        </li>
+
+        <li class="role-card reveal" style="--c:#7c3aed">
+          <div class="when-col"><span class="when">Sep 2018 – Feb 2019</span></div>
+          <div class="rc-head">
+            <span class="plate dark"><img src="assets/hires/astropolis_mark.jpg" alt=""></span>
+            <div class="rc-title">
+              <span class="when">Sep 2018 – Feb 2019</span>
+              <h3><a href="https://www.linkedin.com/company/astropolis-inc" target="_blank" rel="noopener">Astropolis</a></h3>
+              <span class="r">Application Developer</span>
+            </div>
+          </div>
+          <div class="rc-body"><ul>
+            <li>Led MetroDeal's hybrid mobile app development in Ionic Angular.</li>
+            <li>Turned a legacy app into a scalable, cost-efficient, cross-platform solution.</li>
+            <li>Set up analytics and insights to measure app efficiency and usability.</li>
+          </ul></div>
+          <div class="clients">
+            <a class="client" href="https://web.archive.org/web/2024/https://www.metrodeal.com/" target="_blank" rel="noopener"><span class="logo dark"><img src="assets/hires/metrodeal_wordmark.png" alt=""></span><span class="txt"><b>MetroDeal</b><span>Deals app, closed 2024 <span class="cc"><img src="assets/flags/ph.svg" alt="">PH</span></span></span></a>
+          </div>
+        </li>
+
+        <li class="role-card reveal" style="--c:#a100ff">
+          <div class="when-col"><span class="when">Sep 2017 – Aug 2018</span></div>
+          <div class="rc-head">
+            <span class="plate"><img src="assets/hires/accenture_mark.svg" alt=""></span>
+            <div class="rc-title">
+              <span class="when">Sep 2017 – Aug 2018</span>
+              <h3><a href="https://www.accenture.com/" target="_blank" rel="noopener">Accenture</a></h3>
+              <span class="r">Application Development Senior Analyst</span>
+            </div>
+          </div>
+          <div class="rc-body"><ul>
+            <li>Enhanced True Local, Yellow (Sensis) and Vodafone websites in Angular.</li>
+            <li>Senior Front-End Developer implementing scalable website solutions.</li>
+            <li>Improved Australia's local business directory and a Greek telecom's site.</li>
+          </ul></div>
+          <div class="clients">
+            <a class="client" href="https://www.truelocal.com.au/" target="_blank" rel="noopener"><span class="logo"><img src="assets/hires/truelocal_wordmark.svg" alt=""></span><span class="txt"><b>True Local</b><span><span class="cc"><img src="assets/flags/au.svg" alt="">AU</span></span></span></a>
+            <a class="client" href="https://www.yellow.com.au/" target="_blank" rel="noopener"><span class="logo"><img src="assets/brand/yellow.png" alt=""></span><span class="txt"><b>Yellow</b><span>Sensis <span class="cc"><img src="assets/flags/au.svg" alt="">AU</span></span></span></a>
+            <a class="client" href="https://www.vodafone.gr/" target="_blank" rel="noopener"><span class="logo"><img src="assets/hires/vodafone_mark.svg" alt=""></span><span class="txt"><b>Vodafone</b><span><span class="cc"><img src="assets/flags/gr.svg" alt="">GR</span></span></span></a>
+          </div>
+        </li>
+
+        <li class="role-card reveal" style="--c:#ea580c">
+          <div class="when-col"><span class="when">Aug 2016 – Sep 2017</span></div>
+          <div class="rc-head">
+            <span class="plate"><img src="assets/hires/crmonline_mark.png" alt=""></span>
+            <div class="rc-title">
+              <span class="when">Aug 2016 – Sep 2017</span>
+              <h3><a href="https://crmonline.com.au/" target="_blank" rel="noopener">CRM Online Australia</a></h3>
+              <span class="r">Mobile Developer</span>
+            </div>
+          </div>
+          <div class="rc-body"><ul>
+            <li>Built the Fieldmagic hybrid mobile app with AngularJS and Ionic.</li>
+            <li>Lead hybrid mobile developer for field service and asset management.</li>
+          </ul></div>
+          <div class="clients">
+            <a class="client" href="https://fieldmagic.co/" target="_blank" rel="noopener"><span class="logo"><img src="assets/hires/fieldmagic_mark.png" alt=""></span><span class="txt"><b>Fieldmagic</b><span>Field service app <span class="cc"><img src="assets/flags/au.svg" alt="">AU</span></span></span></a>
+          </div>
+        </li>
+
+        <li class="role-card reveal" style="--c:#15803d">
+          <div class="when-col"><span class="when">May 2014 – Aug 2016</span></div>
+          <div class="rc-head">
+            <span class="plate"><img src="assets/hires/ctsi_wordmark.png" alt=""></span>
+            <div class="rc-title">
+              <span class="when">May 2014 – Aug 2016</span>
+              <h3><a href="https://www.ctsi-logistics.com/" target="_blank" rel="noopener">CTSI Holdings</a></h3>
+              <span class="r">Junior Software Engineer</span>
+            </div>
+          </div>
+          <div class="rc-body"><ul>
+            <li>Built mPOD (mobile proof of delivery) and mWMS (mobile warehouse management).</li>
+            <li>Hybrid mobile developer with Cordova / PhoneGap in Agile teams.</li>
+            <li>Improved freight forwarding, tracking, inventory and accounting processes.</li>
+          </ul></div>
+          <div class="clients">
+            <a class="client" href="https://www.ctsi-logistics.com/" target="_blank" rel="noopener"><span class="logo"><img src="assets/hires/ctsi_wordmark.png" alt=""></span><span class="txt"><b>CTSI Logistics</b><span>mPOD · mWMS <span class="cc"><img src="assets/flags/ph.svg" alt="">PH</span></span></span></a>
+          </div>
+        </li>
+      </ol>
+    </div>
+  </section>
+
+  <!-- ===== Skills ===== -->
+  <section class="band" id="skills" aria-labelledby="sk-h">
+    <div class="wrap">
+      <div class="sec-head reveal">
+        <span class="eyebrow">Engineering stack, architecture &amp; leadership</span>
+        <h2 id="sk-h">Tech Stack</h2>
+      </div>
+      <div class="skills">
+        <div class="sk-group reveal"><h3>AI Engineering</h3><ul class="chips">
+          <li><span class="chip"><span class="ic"><img src="assets/tech/g_llm.svg" alt=""></span>LLMs</span></li>
+          <li><span class="chip"><span class="ic"><img src="assets/tech/g_agent.svg" alt=""></span>Agentic workflows</span></li>
+          <li><a class="chip" href="https://modelcontextprotocol.io/" target="_blank" rel="noopener"><span class="ic"><img src="assets/tech/mcp.svg" alt=""></span>MCP tool calling</a></li>
+          <li><span class="chip"><span class="ic"><img src="assets/tech/g_multi.svg" alt=""></span>Multi-agent coding</span></li>
+          <li><span class="chip"><span class="ic"><img src="assets/tech/g_guard.svg" alt=""></span>Guardrails</span></li>
+          <li><a class="chip" href="https://n8n.io/" target="_blank" rel="noopener"><span class="ic"><img src="assets/tech/n8n.svg" alt=""></span>n8n</a></li>
+          <li><a class="chip" href="https://developers.google.com/ml-kit" target="_blank" rel="noopener"><span class="ic tx" aria-hidden="true" style="--t:#1a73e8">ML</span>Google ML Kit</a></li>
+        </ul></div>
+        <div class="sk-group reveal"><h3>Languages &amp; Back-End</h3><ul class="chips">
+          <li><a class="chip" href="https://www.python.org/" target="_blank" rel="noopener"><span class="ic"><img src="assets/tech/python.svg" alt=""></span>Python</a></li>
+          <li><a class="chip" href="https://www.typescriptlang.org/" target="_blank" rel="noopener"><span class="ic"><img src="assets/tech/typescript.svg" alt=""></span>TypeScript</a></li>
+          <li><a class="chip" href="https://developer.mozilla.org/en-US/docs/Web/JavaScript" target="_blank" rel="noopener"><span class="ic"><img src="assets/tech/javascript.svg" alt=""></span>JavaScript</a></li>
+          <li><span class="chip"><span class="ic"><img src="assets/tech/g_sql.svg" alt=""></span>SQL</span></li>
+          <li><a class="chip" href="https://fastapi.tiangolo.com/" target="_blank" rel="noopener"><span class="ic"><img src="assets/tech/fastapi.svg" alt=""></span>FastAPI</a></li>
+          <li><a class="chip" href="https://docs.pydantic.dev/" target="_blank" rel="noopener"><span class="ic"><img src="assets/tech/pydantic.svg" alt=""></span>Pydantic</a></li>
+          <li><a class="chip" href="https://nodejs.org/" target="_blank" rel="noopener"><span class="ic"><img src="assets/tech/nodejs.svg" alt=""></span>Node.js</a></li>
+        </ul></div>
+        <div class="sk-group reveal"><h3>Cloud &amp; DevOps</h3><ul class="chips">
+          <li><a class="chip" href="https://cloud.google.com/" target="_blank" rel="noopener"><span class="ic"><img src="assets/tech/gcp.svg" alt=""></span>Google Cloud</a></li>
+          <li><a class="chip" href="https://cloud.google.com/run" target="_blank" rel="noopener"><span class="ic"><img src="assets/tech/cloudrun.svg" alt=""></span>Cloud Run</a></li>
+          <li><a class="chip" href="https://cloud.google.com/pubsub" target="_blank" rel="noopener"><span class="ic"><img src="assets/tech/pubsub.svg" alt=""></span>Pub/Sub</a></li>
+          <li><a class="chip" href="https://cloud.google.com/bigquery" target="_blank" rel="noopener"><span class="ic"><img src="assets/tech/bigquery.svg" alt=""></span>BigQuery</a></li>
+          <li><a class="chip" href="https://www.terraform.io/" target="_blank" rel="noopener"><span class="ic"><img src="assets/tech/terraform.svg" alt=""></span>Terraform</a></li>
+          <li><a class="chip" href="https://github.com/features/actions" target="_blank" rel="noopener"><span class="ic"><img src="assets/tech/ghactions.svg" alt=""></span>GitHub Actions</a></li>
+          <li><span class="chip"><span class="ic"><img src="assets/tech/g_cicd.svg" alt=""></span>CI/CD</span></li>
+        </ul></div>
+        <div class="sk-group reveal"><h3>Front-End &amp; Mobile</h3><ul class="chips">
+          <li><a class="chip" href="https://react.dev/" target="_blank" rel="noopener"><span class="ic"><img src="assets/tech/react.svg" alt=""></span>React</a></li>
+          <li><a class="chip" href="https://angular.dev/" target="_blank" rel="noopener"><span class="ic"><img src="assets/tech/angular.svg" alt=""></span>Angular</a></li>
+          <li><a class="chip" href="https://vuejs.org/" target="_blank" rel="noopener"><span class="ic"><img src="assets/tech/vue.svg" alt=""></span>Vue.js</a></li>
+          <li><a class="chip" href="https://expo.dev/" target="_blank" rel="noopener"><span class="ic"><img src="assets/tech/expo.svg" alt=""></span>Expo / React Native</a></li>
+          <li><a class="chip" href="https://ionicframework.com/" target="_blank" rel="noopener"><span class="ic"><img src="assets/tech/ionic.svg" alt=""></span>Ionic</a></li>
+          <li><a class="chip" href="https://dotnet.microsoft.com/apps/maui" target="_blank" rel="noopener"><span class="ic"><img src="assets/tech/maui.svg" alt=""></span>.NET MAUI</a></li>
+          <li><a class="chip" href="https://rxjs.dev/" target="_blank" rel="noopener"><span class="ic"><img src="assets/tech/rxjs.svg" alt=""></span>RxJS</a></li>
+        </ul></div>
+        <div class="sk-group reveal"><h3>Data &amp; Testing</h3><ul class="chips">
+          <li><a class="chip" href="https://www.postgresql.org/docs/current/ddl-rowsecurity.html" target="_blank" rel="noopener"><span class="ic"><img src="assets/tech/postgresql.svg" alt=""></span>PostgreSQL (RLS)</a></li>
+          <li><a class="chip" href="https://www.mongodb.com/" target="_blank" rel="noopener"><span class="ic"><img src="assets/tech/mongodb.svg" alt=""></span>MongoDB</a></li>
+          <li><a class="chip" href="https://docs.pytest.org/" target="_blank" rel="noopener"><span class="ic"><img src="assets/tech/pytest.svg" alt=""></span>pytest</a></li>
+          <li><a class="chip" href="https://vitest.dev/" target="_blank" rel="noopener"><span class="ic"><img src="assets/tech/vitest.svg" alt=""></span>Vitest</a></li>
+          <li><a class="chip" href="https://jestjs.io/" target="_blank" rel="noopener"><span class="ic"><img src="assets/tech/jest.svg" alt=""></span>Jest</a></li>
+          <li><a class="chip" href="https://playwright.dev/" target="_blank" rel="noopener"><span class="ic"><img src="assets/tech/playwright.svg" alt=""></span>Playwright</a></li>
+          <li><a class="chip" href="https://www.cypress.io/" target="_blank" rel="noopener"><span class="ic"><img src="assets/tech/cypress.svg" alt=""></span>Cypress</a></li>
+        </ul></div>
+        <div class="sk-group reveal"><h3>Architecture &amp; Leadership</h3><ul class="chips">
+          <li><span class="chip"><span class="ic tx" aria-hidden="true" style="--t:#7c3aed">CQRS</span>CQRS</span></li>
+          <li><span class="chip"><span class="ic"><img src="assets/tech/g_event.svg" alt=""></span>Event-driven design</span></li>
+          <li><a class="chip" href="https://www.openapis.org/" target="_blank" rel="noopener"><span class="ic"><img src="assets/tech/openapi.svg" alt=""></span>OpenAPI</a></li>
+          <li><a class="chip" href="https://www.asyncapi.com/" target="_blank" rel="noopener"><span class="ic tx" aria-hidden="true" style="--t:#0f766e">Async</span>AsyncAPI</a></li>
+          <li><span class="chip"><span class="ic"><img src="assets/tech/g_docs.svg" alt=""></span>ADRs · SDDs</span></li>
+          <li><a class="chip" href="https://openid.net/developers/how-connect-works/" target="_blank" rel="noopener"><span class="ic"><img src="assets/tech/openid.svg" alt=""></span>OIDC</a></li>
+          <li><span class="chip"><span class="ic"><img src="assets/tech/g_agile.svg" alt=""></span>Agile / Scrum</span></li>
+          <li><a class="chip" href="https://scaledagileframework.com/" target="_blank" rel="noopener"><span class="ic tx" aria-hidden="true" style="--t:#0b5cad">SAFe</span>SAFe</a></li>
+          <li><span class="chip"><span class="ic tx" aria-hidden="true" style="--t:#475569">ITIL</span>CAB / ITIL</span></li>
+          <li><span class="chip"><span class="ic tx" aria-hidden="true" style="--t:#0e7490">SDLC</span>SDLC</span></li>
+          <li><span class="chip"><span class="ic"><img src="assets/tech/g_people.svg" alt=""></span>Stakeholder management</span></li>
+          <li><span class="chip"><span class="ic tx" aria-hidden="true" style="--t:#be185d">HR</span>Hiring &amp; coaching</span></li>
+        </ul></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== Credentials ===== -->
+  <section class="band" id="credentials" aria-labelledby="cr-h">
+    <div class="wrap">
+      <div class="sec-head reveal">
+        <span class="eyebrow">Certifications, awards &amp; recognition</span>
+        <h2 id="cr-h">Credentials</h2>
+        <p>Each badge opens my verified credential on Credly, LinkedIn Learning or the certificate itself.</p>
+      </div>
+      <ul class="creds">
+        <li class="reveal"><a class="cred" href="https://www.credly.com/badges/3ba993d6-b402-4d1a-9634-2e27592daeb7" target="_blank" rel="noopener"><span class="yr">2026</span><span class="medal"><img src="assets/hires/pmi_mark.png" alt=""></span><b>Practical Application of Generative AI for Project Managers</b><i>PMI</i></a></li>
+        <li class="reveal"><a class="cred" href="https://www.credly.com/badges/04f59ad6-aca9-4846-84ff-52d2de4933e0" target="_blank" rel="noopener"><span class="yr">2025</span><span class="medal"><img src="assets/hires/pmi_mark.png" alt=""></span><b>Generative AI Overview for Project Managers</b><i>PMI</i></a></li>
+        <li class="reveal"><a class="cred" href="https://www.credly.com/badges/f8200f5c-c167-4626-90bc-011ce08e7bb3" target="_blank" rel="noopener"><span class="yr">2025</span><span class="medal"><img src="assets/hires/pmi_mark.png" alt=""></span><b>Talking to AI: Prompt Engineering for Project Managers</b><i>PMI</i></a></li>
+        <li class="reveal"><a class="cred" href="https://www.credly.com/badges/6c0c3492-eb6f-4ae3-a189-98d1cb67375e" target="_blank" rel="noopener"><span class="yr">2025</span><span class="medal"><img src="assets/hires/pmi_mark.png" alt=""></span><b>Introduction to Cognitive Project Management in AI (CPMAI)™</b><i>PMI</i></a></li>
+        <li class="reveal"><a class="cred" href="https://www.linkedin.com/learning/certificates/3baa4b8b8684334c9b1d149329c77d4c6dc6c6d19174eb8b3779456d0512708b" target="_blank" rel="noopener"><span class="yr">2025</span><span class="medal duo"><img src="assets/tech/microsoft.svg" alt=""><img src="assets/tech/linkedin.svg" alt=""></span><b>Career Essentials in Project Management</b><i>Microsoft &amp; LinkedIn</i></a></li>
+        <li class="reveal"><a class="cred" href="https://drive.google.com/file/d/1D2sJkpsMNFJcw1-T1orEZT1CAUocrn7Z" target="_blank" rel="noopener"><span class="yr">2025</span><span class="medal"><img src="assets/hires/sixsigma_mark.png" alt=""></span><b>Lean Six Sigma White Belt</b><i>Council for Six Sigma Certification</i></a></li>
+        <li class="reveal"><div class="cred award"><span class="yr">2019</span><a class="cred-main" href="https://drive.google.com/file/d/1fufVULtkDwVbEkVhXsBpuzKBe5zHIp4e/view?usp=sharing" target="_blank" rel="noopener"><span class="medal"><img src="assets/tech/ibmlogo.svg" alt=""></span><span class="kind">Award · Q2 &amp; Q3</span><b>Certificate of Appreciation / Recognition</b></a><span class="qs"><a class="q" href="https://drive.google.com/file/d/1fufVULtkDwVbEkVhXsBpuzKBe5zHIp4e/view?usp=sharing" target="_blank" rel="noopener" aria-label="Certificate of Appreciation / Recognition, Q2 certificate">Q2</a><a class="q" href="https://drive.google.com/file/d/1sou1lT1TgAgwO-chciNCvg-8tjNsm7lJ/view?usp=sharing" target="_blank" rel="noopener" aria-label="Certificate of Appreciation / Recognition, Q3 certificate">Q3</a></span><i>IBM</i></div></li>
+        <li class="reveal"><div class="cred award"><span class="yr">2019</span><a class="cred-main" href="https://drive.google.com/file/d/17EHmbi9LCB57alv9hSXwrqhc2Pi4qYXT/view?usp=sharing" target="_blank" rel="noopener"><span class="medal"><img src="assets/tech/ibmlogo.svg" alt=""></span><span class="kind">Award · Q2 &amp; Q3</span><b>IBM Manager's Choice Awards</b></a><span class="qs"><a class="q" href="https://drive.google.com/file/d/17EHmbi9LCB57alv9hSXwrqhc2Pi4qYXT/view?usp=sharing" target="_blank" rel="noopener" aria-label="IBM Manager's Choice Awards, Q2 certificate">Q2</a><a class="q" href="https://drive.google.com/file/d/1MtwM9YHZH-uTtuVth564sZPEp-bspLig/view?usp=sharing" target="_blank" rel="noopener" aria-label="IBM Manager's Choice Awards, Q3 certificate">Q3</a></span><i>IBM</i></div></li>
+        <li class="reveal"><a class="cred" href="https://www.credly.com/badges/012cadea-f4c7-4026-9a1b-1c1ca4eebb66" target="_blank" rel="noopener"><span class="yr">2019</span><span class="medal"><img src="assets/tech/ibmlogo.svg" alt=""></span><b>Enterprise Design Thinking Practitioner</b><i>IBM</i></a></li>
+        <li class="reveal"><a class="cred" href="https://www.credly.com/badges/d02d004c-2a5c-46b3-b1a8-2f66f3ed1699" target="_blank" rel="noopener"><span class="yr">2019</span><span class="medal"><img src="assets/tech/ibmlogo.svg" alt=""></span><b>IBM Agile Explorer</b><i>IBM</i></a></li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- ===== Education + community ===== -->
+  <section class="band" id="education" aria-labelledby="ed-h">
+    <div class="wrap">
+      <div class="sec-head reveal">
+        <span class="eyebrow">Education &amp; community</span>
+        <h2 id="ed-h">Learning and leading</h2>
+      </div>
+      <div class="duo-cols">
+        <div class="list-card reveal">
+          <h3>Education</h3>
+          <a class="li" href="https://unfc.ca/" target="_blank" rel="noopener"><span class="plate"><img src="assets/hires/unfc_mark.png" alt=""></span><span class="t"><b>Master of Management, Major in Emerging Technology</b><span>University of Niagara Falls Canada · With Distinction, President&#8217;s Honour Roll</span></span><span class="y">2026</span></a>
+          <a class="li" href="https://www.feutech.edu.ph/" target="_blank" rel="noopener"><span class="plate"><img src="assets/hires/feutech_mark.png" alt=""></span><span class="t"><b>BS Information Technology, Major in Web and Mobile Application</b><span>Far Eastern University Institute of Technology</span></span><span class="y">2015</span></a>
+        </div>
+        <div class="list-card reveal">
+          <h3>Community leadership</h3>
+          <a class="li" href="https://unfc.ca/" target="_blank" rel="noopener"><span class="plate"><img src="assets/tech/microsoft.svg" alt=""></span><span class="t"><b>President</b><span>UNF Tech Student Community, Microsoft technologies</span></span><span class="y">2026</span></a>
+          <a class="li" href="https://gdg.community.dev/" target="_blank" rel="noopener"><span class="plate"><img src="assets/hires/gdg_mark.png" alt=""></span><span class="t"><b>Vice President</b><span>Google Developer Groups on Campus Niagara Falls</span></span><span class="y">2026</span></a>
+          <a class="li" href="https://ftp-yyz.ca/" target="_blank" rel="noopener"><span class="plate"><img src="assets/brand/ftpyyz1.png" alt=""></span><span class="t"><b>Director · VP, Technology</b><span>Filipino Tech Professionals of YYZ</span></span><span class="y">2026</span></a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== Contact ===== -->
+  <section class="contact" id="contact" aria-labelledby="ct-h">
+    <div class="wrap contact-in reveal">
+      <span class="eyebrow" style="color:#7dd3fc">Contact</span>
+      <h2 id="ct-h">Let's talk about your next build</h2>
+      <p>The quickest way to reach me is email or LinkedIn.</p>
+      <div class="mail">
+        <code id="email">raymondgalor@gmail.com</code>
+        <button class="btn btn-primary" type="button" id="copy-email">Copy email</button>
+        <a class="btn btn-ghost" href="https://www.linkedin.com/in/raymond-neil-galor/" target="_blank" rel="noopener"><img src="assets/tech/linkedin.svg" alt="">LinkedIn profile</a>
+      </div>
+      <p class="copied" id="copied" aria-live="polite"></p>
+    </div>
+  </section>
+  </div>
+</main>
+
+<footer>
+  <div class="wrap">
+    <span>© 2026 Raymond Neil Galor</span>
+    <span>Ontario, Canada</span>
+  </div>
+</footer>
+
+<script>
+
+  // Poster: timeline bars and full-tile links, scoped to the poster.
+  (function () {
+    var P = document.querySelector('.poster');
+    if (!P) return;
+    var START = 2014.33, END = 2026.83;
+    var jobs = [
+      ['CTSI', 'CTSI', 2014.37, 2016.62, '#15803d'],
+      ['CRM Online', 'CRM', 2016.62, 2017.70, '#ea580c'],
+      ['Accenture', 'ACN', 2017.70, 2018.62, '#a100ff'],
+      ['Astropolis', 'AS', 2018.70, 2019.13, '#7c3aed'],
+      ['IBM', 'IBM', 2019.17, 2021.25, '#1f70c1'],
+      ['BCS', 'BCS', 2021.25, 2022.37, '#0891b2'],
+      ['RCG', 'RCG', 2022.37, 2024.50, '#2563eb'],
+      ['Contract Engagements', 'CE', 2024.50, END, '#0f766e'],
+      ['FTAP', 'FTAP', 2026.33, END, '#c2410c', 1]
+    ];
+    var pct = function (y) { return ((y - START) / (END - START)) * 100; };
+    var track = P.querySelector('#p-track'), ticks = P.querySelector('#p-ticks');
+    var W = track.offsetWidth || 916;
+    jobs.forEach(function (j) {
+      var d = document.createElement('div');
+      d.className = 'p-seg';
+      d.style.cssText = 'left:calc(' + pct(j[2]) + '% + 2px);width:calc(' + (pct(j[3]) - pct(j[2])) + '% - 4px);background:' + j[4] + (j[5] ? ';top:36px;height:18px;font-size:10.5px' : '');
+      var w = W * (pct(j[3]) - pct(j[2])) / 100;
+      d.textContent = w > j[0].length * 7.6 + 12 ? j[0] : j[1];
+      track.appendChild(d);
+    });
+    for (var y = 2015; y <= 2026; y++) {
+      var s = document.createElement('span');
+      s.style.left = pct(y) + '%';
+      s.textContent = y;
+      ticks.appendChild(s);
+    }
+    P.querySelectorAll('[data-href]').forEach(function (el) {
+      if (getComputedStyle(el).position === 'static') el.style.position = 'relative';
+      var a = document.createElement('a');
+      a.className = 'p-hit';
+      a.href = el.getAttribute('data-href');
+      a.target = '_blank';
+      a.rel = 'noopener';
+      a.setAttribute('aria-label', (el.textContent || '').replace(/\s+/g, ' ').trim().slice(0, 90) || a.href);
+      el.appendChild(a);
+    });
+  })();
+
+</script>
+<script>
+  var root = document.documentElement;
+  var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var posterMQ = window.matchMedia(window.__posterQuery || '(min-width: 1100px) and (min-aspect-ratio: 5/4)');
+
+  // Start the entrance once fonts are in, so text never reflows mid-animation.
+  (function () {
+    var started = false;
+    function go() {
+      if (started) return;
+      started = true;
+      // Hidden pages (background tabs, link previews) get no animation frames, so show the content at once.
+      if (document.hidden) { root.classList.add('ready'); return; }
+      requestAnimationFrame(function () { requestAnimationFrame(function () { root.classList.add('ready'); }); });
+    }
+    if (document.fonts && document.fonts.ready) document.fonts.ready.then(go);
+    setTimeout(go, 1200);
+  })();
+
+  // Scroll-linked effects, batched into one animation frame: header slide-in and the poster's gentle recede.
+  (function () {
+    var head = document.getElementById('site-head');
+    var inner = document.getElementById('ov-inner');
+    var mHero = document.querySelector('.m-hero');
+    var queued = false;
+    function update() {
+      queued = false;
+      var y = window.scrollY || window.pageYOffset;
+      var vh = window.innerHeight;
+      var desktop = posterMQ.matches;
+      var threshold = desktop ? vh * 0.55 : (mHero ? mHero.offsetHeight * 0.8 : 300);
+      head.classList.toggle('show', y > threshold);
+      if (desktop && !reduce) {
+        var p = Math.min(1, Math.max(0, y / vh));
+        inner.style.transform = 'translate3d(0,' + (-p * 48).toFixed(2) + 'px,0) scale(' + (1 - p * 0.07).toFixed(4) + ')';
+        inner.style.opacity = (1 - p * 0.6).toFixed(3);
+      } else if (inner.style.transform) {
+        inner.style.transform = '';
+        inner.style.opacity = '';
+      }
+    }
+    function queue() { if (!queued) { queued = true; requestAnimationFrame(update); } }
+    window.addEventListener('scroll', queue, { passive: true });
+    window.addEventListener('resize', function () { if (window.__fitPoster) window.__fitPoster(); queue(); });
+    if (posterMQ.addEventListener) posterMQ.addEventListener('change', queue);
+    update();
+  })();
+
+  // Reveal sections once as they arrive; siblings get a short stagger.
+  (function () {
+    var els = Array.prototype.slice.call(document.querySelectorAll('.reveal'));
+    var groups = new Map();
+    els.forEach(function (el) {
+      var key = el.parentElement;
+      var n = groups.get(key) || 0;
+      el.style.setProperty('--rd', Math.min(n % 6, 5) * 60 + 'ms');
+      groups.set(key, n + 1);
+    });
+    if (reduce || !('IntersectionObserver' in window)) {
+      els.forEach(function (el) { el.classList.add('in'); });
+      return;
+    }
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (e) {
+        if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); }
+      });
+    }, { rootMargin: '0px 0px 6% 0px', threshold: 0 });
+    els.forEach(function (el) { io.observe(el); });
+  })();
+
+  // Detailed career timeline. Built once; resizing only relabels.
+  (function () {
+    var START = 2014.33, END = 2026.83;
+    var roles = [
+      ['CTSI', 'CTSI', 2014.37, 2016.62, '#15803d'],
+      ['CRM Online', 'CRM', 2016.62, 2017.70, '#cc4a0a'],
+      ['Accenture', 'ACN', 2017.70, 2018.62, '#a100ff'],
+      ['Astropolis', 'AS', 2018.70, 2019.13, '#7c3aed'],
+      ['IBM', 'IBM', 2019.17, 2021.25, '#1f70c1'],
+      ['BCS', 'BCS', 2021.25, 2022.37, '#0e7490'],
+      ['RCG', 'RCG', 2022.37, 2024.50, '#2563eb'],
+      ['Contract Engagements', 'CE', 2024.50, END, '#0f766e'],
+      ['FTAP', 'FTAP', 2026.33, END, '#c2410c', true]
+    ];
+    var pct = function (y) { return ((y - START) / (END - START)) * 100; };
+    var track = document.getElementById('track');
+    var ticks = document.getElementById('ticks');
+    if (!track) return;
+    var segs = roles.map(function (r, i) {
+      var d = document.createElement('span');
+      d.className = 'seg' + (r[5] ? ' lane2' : '');
+      d.style.left = 'calc(' + pct(r[2]) + '% + 1px)';
+      d.style.width = 'calc(' + (pct(r[3]) - pct(r[2])) + '% - 2px)';
+      d.style.background = r[4];
+      d.style.setProperty('--i', i);
+      track.appendChild(d);
+      return d;
+    });
+    var lastW = -1;
+    function label() {
+      var w = track.offsetWidth;
+      if (w === lastW) return;
+      lastW = w;
+      roles.forEach(function (r, i) {
+        var px = w * (pct(r[3]) - pct(r[2])) / 100;
+        var text = px > r[0].length * 7 + 14 ? r[0] : (px > r[1].length * 7 + 6 ? r[1] : '');
+        segs[i].classList.toggle('out', !text && !!r[5]);
+        segs[i].textContent = text;
+        if (!text && r[5]) {
+          var lbl = document.createElement('span');
+          lbl.className = 'lbl';
+          lbl.textContent = r[1];
+          segs[i].appendChild(lbl);
+        }
+      });
+      ticks.textContent = '';
+      var step = w < 560 ? 2 : 1;
+      for (var y = 2015; y <= 2026; y += step) {
+        var s = document.createElement('span');
+        s.style.left = pct(y) + '%';
+        s.textContent = y;
+        ticks.appendChild(s);
+      }
+      var sc = track.closest('.tl-scroll');
+      if (sc) sc.scrollLeft = sc.scrollWidth;
+    }
+    label();
+    var t;
+    window.addEventListener('resize', function () { clearTimeout(t); t = setTimeout(label, 150); });
+  })();
+
+  // Highlight the section in view. Only the nav strip scrolls, never the page.
+  (function () {
+    var links = Array.prototype.slice.call(document.querySelectorAll('.nav a'));
+    if (!('IntersectionObserver' in window)) return;
+    var nav = document.querySelector('.nav');
+    var byId = {};
+    links.forEach(function (a) { byId[a.getAttribute('href').slice(1)] = a; });
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (e) {
+        if (!e.isIntersecting) return;
+        links.forEach(function (a) { a.removeAttribute('aria-current'); });
+        var a = byId[e.target.id];
+        if (!a) return;
+        a.setAttribute('aria-current', 'true');
+        var nr = nav.getBoundingClientRect(), ar = a.getBoundingClientRect();
+        if (ar.left < nr.left || ar.right > nr.right) nav.scrollTo({ left: nav.scrollLeft + (ar.left - nr.left) - 8, behavior: reduce ? 'auto' : 'smooth' });
+      });
+    }, { rootMargin: '-40% 0px -55% 0px' });
+    Object.keys(byId).forEach(function (id) { var el = document.getElementById(id); if (el) io.observe(el); });
+  })();
+
+  // Copy email: clipboard when allowed, otherwise select the address so it can be copied by hand.
+  (function () {
+    var btn = document.getElementById('copy-email');
+    var code = document.getElementById('email');
+    var out = document.getElementById('copied');
+    if (!btn) return;
+    function selectText() {
+      var r = document.createRange();
+      r.selectNodeContents(code);
+      var sel = window.getSelection();
+      sel.removeAllRanges();
+      sel.addRange(r);
+    }
+    btn.addEventListener('click', function () {
+      var text = code.textContent.trim();
+      var done = function () { out.textContent = 'Email copied.'; };
+      var fail = function () { selectText(); out.textContent = 'Address selected. Press Ctrl+C or Cmd+C to copy it.'; };
+      try {
+        if (navigator.clipboard && navigator.clipboard.writeText) navigator.clipboard.writeText(text).then(done, fail);
+        else fail();
+      } catch (e) { fail(); }
+    });
+  })();
+
+</script>
+
+</body>
+</html>
